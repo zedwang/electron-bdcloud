@@ -1,0 +1,25 @@
+.menu {
+    padding: 8px 5px;
+
+    li > ul {
+        a {
+            padding-left: 20px;
+        }
+    }
+
+    li  a {
+        display: block;
+        text-align: center;
+        padding: 5px 4px;
+        font-size: 12px;
+        cursor: default;
+
+        &:hover:not(.active) {
+            color: #3e9bff;
+        }
+    }
+
+    li a.active {
+        background: rgba(62, 155, 255, 0.4);
+    }
+}

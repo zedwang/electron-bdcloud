@@ -1,0 +1,62 @@
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 10px;
+    font-size: 12px;
+    line-height: 1.33;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    &:active,
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        outline: 1px solid #3e9bff;
+        background: rgba(205, 250, 252, 0.6);
+    }
+
+    span {
+        font-size: 1rem;
+        position: relative;
+        top: 1;
+        color: #3e9bff;
+    }
+}
+
+.btn-default {
+    border: transparent;
+    background: transparent;
+    color: #39618c
+}
+
+.btn-sm {
+    padding: 3px;
+}
+
+.btn-link,
+.btn-link:hover {
+    background: transparent;
+    border-color: transparent;
+    outline-color: transparent;
+}
+$types: (danger #d43f3a, warning #eea236,success #4cae4c,link transparent);
+
+@each $key,$value in $types {
+    .btn-#{$key} {
+        border: 1px solid #{$value};
+        color: $value
+    }
+}
