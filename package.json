@@ -4,11 +4,11 @@
   "description": "仿百度云盘客户端",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
+    "start": "npm-run-all --parallel serve dev",
     "serve:webpack": "webpack-dev-server --env.NODE_ENV=dev --config webpack.config.js --color",
     "serve": "cross-env NODE_ENV=development cross-env BABEL_ENV=development node server.js",
     "dev": "cross-env NODE_ENV=development  electron . --debug",
-    "compile": "cross-env NODE_ENV=production  rm -rf dist &&  electron-webpack",
+    "compile": "cross-env NODE_ENV=production  rm -rf dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": {
@@ -46,6 +46,7 @@
     "file-loader": "^1.1.6",
     "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.7.2",
+    "npm-run-all": "^4.1.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
     "uglifyjs-webpack-plugin": "^1.1.5",
