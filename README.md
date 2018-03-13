@@ -3,9 +3,9 @@
 ### Dev
 1. fork仓库，安装依赖包
 ```shell
-    yarn install
+    $ yarn install
 ```
 1. 启动
 ```shell
-    yarn start
+    $ yarn start
 ```
