@@ -19,5 +19,7 @@ module.exports = {
     plugins: [
         ...baseConf.plugins,
         new Webpack.HotModuleReplacementPlugin()
-    ]
+    ],
+    // https://github.com/chentsulin/webpack-target-electron-renderer#how-this-module-works
+    target: 'electron-renderer'
 }

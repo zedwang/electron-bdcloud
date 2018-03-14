@@ -10,5 +10,6 @@ config.devtool = 'source-map'
 config.plugins.push(new UglifyJsPlugin({
     sourceMap: true
 }))
+config.target = 'electron-renderer'
 
 module.exports = config

@@ -12,7 +12,7 @@ class App extends Component {
 
     render() {
         console.log(stores)
-        return (<Provider {...stores}>
+        return (<Provider {...stores } test={{}}>
             <BrowserRouter>
                 {routes}
             </BrowserRouter>

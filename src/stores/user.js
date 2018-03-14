@@ -1,15 +1,19 @@
-import { observable, action } from 'mobx';
+import { observable, action, computed, autorun, extendObservable } from 'mobx';
 
-class User {
-    @observable showOnTap = false;
-    @observable startUp = false;
-
-
-    @action setAlwayOnTop() {
-        user.startUp = true;
+class Store {
+    @observable oo = {
+      name: 1
     }
-}
+  };
 
-const user = new User() 
+const user = new Store() 
+var i = 1;
+// setInterval(() => {
+//     console.log(user)
+//     user.oo.name = i++;
+// }, 2000);
 
+// autorun(() => {
+//   console.log(user.oo.name);
+// });
 export default user
