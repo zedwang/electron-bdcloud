@@ -23,7 +23,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-react', '@babel/preset-env'],
+                        presets: ['@babel/preset-react', '@babel/preset-es2015'],
                         plugins: [
                             require("@babel/plugin-proposal-class-properties"),
                             require("@babel/plugin-proposal-decorators"),
