@@ -9,15 +9,6 @@ import './header.scss'
 @inject('window')
 @observer
 export default class Header extends Component {
-    @observable secondsPassed = 0;
-
-    constructor() {
-        super()
-
-        this.state = {
-            counter: 0
-        }
-    }
 
     handleMax = () => {
         this.props.window.max()
@@ -38,7 +29,6 @@ export default class Header extends Component {
     render() {
         const { window } = this.props;
         const state = window.isMax;
-        console.log(state)
         const btns = (() => {
             if (state) {
                 return (<Glyphicon name="icon_maximize" onClick={this.handleRestore} />)
@@ -50,7 +40,7 @@ export default class Header extends Component {
         return (
             <div className="header">
                 <div className="logo">
-                    <span className="icon icon-cloud"></span> 百度网盘{this.state.counter}
+                    <span className="icon icon-cloud"></span> 百度网盘
             </div>
                 <div className="operator">
                     {this.status}

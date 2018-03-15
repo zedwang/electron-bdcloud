@@ -7,13 +7,8 @@ import { Header, Toolbar, Taskbar, Footer, Glyphicon, Menu} from '../components'
 }))
 @observer
 class Layout extends Component {
-    // constructor(props) {
-    //     super(props)
-    //     console.log(this.props);
-    // }
 
     render() {
-        console.log(this.props);
         const { match, location, history } = this.props
         return (<div>
             <Header/>

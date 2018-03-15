@@ -8,7 +8,6 @@ import { Icon } from '../components'
 class Home extends Component {
     constructor(props){
         super(props)
-        console.log('home',this.props)
         this.data = this.props.files || []
     }
 

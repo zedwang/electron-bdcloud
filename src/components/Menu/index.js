@@ -10,19 +10,12 @@ import './menu.scss'
 export default class Menu extends React.Component {
     constructor(props) {
         super(props)
-
-        // this.state = {
-        //     type: 'all'
-        // }
-
         this.toggleCategory = this.toggleCategory.bind(this)
     }
     toggleCategory(type) {
         this.props.files.setCategory(type)
-        console.log(this.props.files)
     }
     render() {
-        console.log(this.props.files)
         return (
             <ul className="menu">
                 <li><a><Glyphicon name="folder-open" onClick={()=>{this.toggleCategory(0)}}/> 全部文件</a>

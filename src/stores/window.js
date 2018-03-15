@@ -4,11 +4,11 @@ import { remote } from 'electron';
 class Window {
     window
     // normal max min 
-    @observable isMax = 'haha';
+    @observable isMax
     
     constructor() {
         this.window = remote.getCurrentWindow();
-        // this.isMax = this.window.isMaximized();
+        this.isMax = this.window.isMaximized();
     }
 
     exit() {
@@ -20,8 +20,7 @@ class Window {
     }
 
     max() {
-        console.log(this.isMax)
-        // this.isMax = !this.isMax;
+        this.isMax = !this.isMax;
         this.window.maximize()
     }
 

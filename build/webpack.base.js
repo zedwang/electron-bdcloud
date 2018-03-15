@@ -25,8 +25,8 @@ module.exports = {
                     options: {
                         presets: ['@babel/preset-react', '@babel/preset-es2015'],
                         plugins: [
-                            require("@babel/plugin-proposal-class-properties"),
                             require("@babel/plugin-proposal-decorators"),
+                            [require("@babel/plugin-proposal-class-properties"),{loose: true}],
                             require("@babel/plugin-proposal-export-default-from"),
                             require("@babel/plugin-proposal-object-rest-spread")
                             ],
