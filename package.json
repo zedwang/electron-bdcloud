@@ -1,15 +1,17 @@
 {
-  "name": "mobx-react-Cloud",
+  "name": "mobx-react-cloud",
   "version": "1.0.0",
   "description": "仿百度云盘客户端",
-  "main": "main.js",
+  "main": "./main.js",
   "scripts": {
     "start": "npm-run-all --parallel serve dev",
     "serve:webpack": "webpack-dev-server --env.NODE_ENV=dev --config webpack.config.js --color",
     "serve": "cross-env NODE_ENV=development cross-env BABEL_ENV=development node server.js",
     "dev": "cross-env NODE_ENV=development  electron . --debug",
-    "compile": "cross-env NODE_ENV=production  rm -rf dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "cross-env NODE_ENV=production  rm -rf dist && webpack",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "electron-builder --dir",
+    "package:win": "electron-packager ./ --platform=win32"
   },
   "author": {
     "name": "woox.wzd",
@@ -18,6 +20,21 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/zedwang/iCloud.git"
+  },
+  "build": {
+    "productName": "iCloud",
+    "appId": "com.zed.app",
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": true
+    },
+    "directories": {
+      "output": "../release"
+    }
   },
   "license": "MIT",
   "devDependencies": {
@@ -38,8 +55,10 @@
     "cross-env": "^5.1.3",
     "css-loader": "^0.28.7",
     "debug": "^3.1.0",
+    "electron": "^1.8.2",
     "electron-builder": "^19.56.0",
     "electron-json-storage": "^4.0.2",
+    "electron-packager": "^11.1.0",
     "electron-updater": "^2.20.1",
     "electron-webpack": "^1.12.1",
     "electron-window-state": "^4.1.1",
@@ -57,7 +76,6 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "electron": "^1.8.2",
     "express": "^4.16.2",
     "history": "^4.7.2",
     "immutability-helper": "^2.6.4",

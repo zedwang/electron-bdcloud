@@ -11,6 +11,7 @@
 ```
 
 # 坑
+ 1. electron不同于普通的web程序，涉及到进程通信，所以在webpack编译的时候要配置  `target: 'electron-renderer'`
  1. 比较常见的就是es6`class`this的绑定问题，一般有三种方式解决：
     - 在`constructor`手动bind，或者用`auto-bind`这个报来自动绑定
     - 在调用的地方bind，`<button onClick={this.handleClick.bind(this)}>click me</button>`
