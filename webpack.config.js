@@ -1,3 +1,3 @@
-let env = process.env.NODE_ENV || 'dev'
+let env = process.env.NODE_ENV || 'development'
 
-module.exports = require('./build/webpack.'+ env.substr(0,4))
+module.exports = require('./build/webpack.'+ env)

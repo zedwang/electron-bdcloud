@@ -3,7 +3,7 @@ import { observable, action } from 'mobx';
 class Files {
     
     @observable data;
-    @observable category;
+    @observable category = 0;
     @observable path;
 
 

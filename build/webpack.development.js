@@ -22,7 +22,7 @@ module.exports = Object.assign(baseConf,{
         new Webpack.HotModuleReplacementPlugin(),
         new Webpack.EnvironmentPlugin({
             NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
-            DEBUG: false
+            DEBUG: true
           })
     ],
     // https://github.com/chentsulin/webpack-target-electron-renderer#how-this-module-works
