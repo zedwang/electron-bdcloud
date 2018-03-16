@@ -4,17 +4,12 @@
 const path = require('path')
 const Webpack = require('webpack')
 const config = require('../config')
+
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const paths = config.get('utils.paths')
 module.exports = {
-
-    output: {
-        filename: '[name].boundle.js',
-        path: paths.dist()
-    },
-
     module: {
         rules: [
             {
@@ -74,20 +69,16 @@ module.exports = {
     //     includePaths : paths.src('styles')
     //   },
     plugins: [
-        // new CleanWebpackPlugin(config.get('dir.dist')),
+        new CleanWebpackPlugin('dist',{
+            root: paths.dist()
+        }),
         new HtmlWebpackPlugin({
-            title:'webpack output management',
-            templateContent : '<div id="root"></div>',
-            inject: 'body'
+            title:'shanzhai-cloud',
+            template : paths.project(paths.src(),'index.html'),
         })
     ],
     resolve: {
         extensions: ['.js', '.jsx'],
-        // alias: {
-        //     ui: path.join(config.client, 'js/ui/'),
-        //     utils: path.join(config.client, 'js/utils/'),
-        //     components: path.join(config.client, 'js/components/'),
-        //     stores: path.join(config.client, 'js/stores/'),
-        // },
+       
     },
 }

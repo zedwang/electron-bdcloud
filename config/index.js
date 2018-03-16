@@ -6,7 +6,7 @@ config.set('webpack.port', process.env.PORT || 8597)
 config.set('webpack.host', 'localhost')
 config.set('api.port', process.env.API_PORT || 9000)
 config.set('dir.src', 'src')
-config.set('dir.dist', 'dist')
+config.set('dir.dist', 'package')
 config.set('dir.test', 'test')
 
 // -----------------------------------

@@ -2,11 +2,11 @@
 
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
-const { formatUrl } = require('url')
+const { format } = require('url')
 const server = require('./backend')
 const config = require('./config')
 
-const isDevelopment = process.env.NODE_ENV  !== 'production'
+const isProd = process.env.NODE_ENV.trim() === 'production'
 
 // global reference to mainWindow (necessary to prevent window from being garbage collected)
 let mainWindow
@@ -18,15 +18,12 @@ function createMainWindow() {
     frame: false
   })
 
-  if (isDevelopment) {
+  if (!isProd) {
     window.webContents.openDevTools()
-  }
-
-  if (isDevelopment) {
     window.loadURL('http://localhost:8597')
   }
   else {
-    window.loadURL(formatUrl({
+    window.loadURL(format({
       pathname: path.join(__dirname, 'dist', 'index.html'),
       protocol: 'file',
       slashes: true

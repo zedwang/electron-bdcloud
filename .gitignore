@@ -1,3 +1,4 @@
 node_modules
 .git
-dist
+package/dist
+package/main.js

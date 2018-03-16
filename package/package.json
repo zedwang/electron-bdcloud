@@ -1,0 +1,15 @@
+{
+  "name": "山寨云",
+  "version": "1.0.0",
+  "description": "仿百度云盘客户端",
+  "main": "./main.js",
+  "author": {
+    "name": "woox.wzd",
+    "email": "woox.wzd@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zedwang/iCloud.git"
+  },
+  "license": "MIT"
+}
