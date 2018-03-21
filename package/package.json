@@ -1,5 +1,5 @@
 {
-  "name": "山寨云",
+  "name": "icloud",
   "version": "1.0.0",
   "description": "仿百度云盘客户端",
   "main": "./main.js",
@@ -11,5 +11,51 @@
     "type": "git",
     "url": "https://github.com/zedwang/iCloud.git"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "build": {
+    "productName": "icloud",
+    "appId": "zed.woox.icloud",
+    "compression": "maximum",
+    "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ],
+      "title": "icloud ${version}"
+    },
+    "mac": {
+      "icon": "./icons/iCloud.icns"
+    },
+    "linux": {
+      "icon": "./icons",
+      "category": "cloud",
+      "target": [
+        "deb",
+        "rpm",
+        "AppImage"
+      ]
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "${productName}-${version}-${os}-${arch}-setup.${ext}",
+      "deleteAppDataOnUninstall": true
+    },
+    "directories": {
+      "buildResources": "./icons",
+      "output": "release"
+    }
+  }
 }

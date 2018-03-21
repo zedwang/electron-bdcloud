@@ -2,3 +2,4 @@ node_modules
 .git
 package/dist
 package/main.js
+package/release/*

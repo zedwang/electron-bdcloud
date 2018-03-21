@@ -17,7 +17,7 @@
  ```
  1. 编译安装包
  ```shell
-    //...未完待续
+    $ yarn release
  ```
 # 踩坑日记
  1. electron不同于普通的web程序，涉及到进程通信，所以在webpack编译的时候要配置  `target: 'electron-renderer'`
