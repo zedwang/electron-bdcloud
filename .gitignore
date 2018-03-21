@@ -1,5 +1,6 @@
 node_modules
 .git
-package/dist
-package/main.js
-package/release/*
+package/**
+!package/icons/*
+!package/package.json
+!package/README.md

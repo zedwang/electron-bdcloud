@@ -19,6 +19,10 @@
  ```shell
     $ yarn release
  ```
+# TODOS
+* [ ] 网络检测
+* [ ] 自动更新
+* [ ] 系统通知 
 # 踩坑日记
  1. electron不同于普通的web程序，涉及到进程通信，所以在webpack编译的时候要配置  `target: 'electron-renderer'`
  1. 比较常见的就是es6`class`this的绑定问题，一般有三种方式解决：
