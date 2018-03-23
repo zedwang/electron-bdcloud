@@ -58,7 +58,11 @@
             .username {
                 float: left;
                 padding-left: 8px;
-
+                max-width: 160px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                
                 h2 {
                     font-size: 1.125rem;
                     margin-top: 9px;

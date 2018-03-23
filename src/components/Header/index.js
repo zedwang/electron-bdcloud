@@ -6,7 +6,7 @@ import { observer, inject } from 'mobx-react'
 import './header.scss'
 
 
-@inject('window')
+@inject('window', 'user')
 @observer
 export default class Header extends Component {
 
@@ -26,8 +26,13 @@ export default class Header extends Component {
         this.props.window.restore()
     }
 
+    componentDidMount() {
+        this.props.user.loadUser()
+    }
+
     render() {
-        const { window } = this.props;
+        const { window, user } = this.props;
+        console.log(user.userInfo)
         const state = window.isMax;
         const btns = (() => {
             if (state) {
@@ -56,7 +61,7 @@ export default class Header extends Component {
                             <img src="" />
                         </div>
                         <div className="username">
-                            <h2>爱笑的茄子</h2>
+                            <h2>{user.userInfo.niceName}</h2>
                             <div className="disk-space">
                                 <div className="used"></div>
                                 <span className="count">229.37GB/2056.00GB</span>

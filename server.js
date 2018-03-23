@@ -7,7 +7,7 @@ const express = require('express');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-
+const proxy = require('http-proxy-middleware');
 const config = require('./config');
 const webpackConfig = require('./webpack.config');
 
@@ -25,6 +25,8 @@ app.use(
     })
 );
 app.use(webpackHotMiddleware(compiler));
+
+app.use('/', proxy({target: 'http://localhost:9527', changeOrigin: true}))
 
 app.listen(config.get('webpack.port'), config.get('webpack.host'), err => {
     if (err) {

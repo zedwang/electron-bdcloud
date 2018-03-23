@@ -3,3 +3,5 @@ node_modules
 package/dist
 package/release
 package/*.js
+db/*.db
+.vscode
