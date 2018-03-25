@@ -1,8 +1,10 @@
 import { observable, action, computed } from 'mobx';
-import { remote } from 'electron';
+import { remote, ipcRenderer } from 'electron';
+
 
 class Window {
     window
+    tray = null
     // normal max min 
     @observable isMax
     
@@ -27,6 +29,13 @@ class Window {
     restore() {
         this.isMax = !this.isMax;
         this.window.restore()
+    }
+
+  
+
+    hiddenWindow() {
+        ipcRenderer.send('hidden-window', 'hello')
+       
     }
 
 }

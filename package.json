@@ -5,7 +5,7 @@
   "main": "./main.js",
   "scripts": {
     "start": "npm-run-all --parallel serve dev",
-    "serve": "cross-env NODE_ENV=development nodemon ./server.js",
+    "serve": "cross-env NODE_ENV=development node ./server.js",
     "dev": "cross-env NODE_ENV=development electron . --debug",
     "compile": "cross-env NODE_ENV=production && webpack",
     "compile:main": "cross-env NODE_ENV=production && webpack --config ./build/webpack.electron.js",
@@ -52,6 +52,7 @@
     "autoprefixer-loader": "^3.2.0",
     "babel-loader": "^8.0.0-beta.0",
     "clean-webpack-plugin": "^0.1.17",
+    "copy-webpack-plugin": "^4.5.1",
     "cross-env": "^5.1.3",
     "css-loader": "^0.28.7",
     "debug": "^3.1.0",
@@ -90,7 +91,6 @@
     "normalize.css": "^8.0.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
-    "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2"
   }

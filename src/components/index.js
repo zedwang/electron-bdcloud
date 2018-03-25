@@ -10,6 +10,7 @@ import Taskbar from './Taskbar/'
 import Thumb from './Thumb/'
 import Toolbar from './Toolbar/'
 import Titlebar from './Titlebar/'
+import Modal from './Modal/'
 
 
 export {

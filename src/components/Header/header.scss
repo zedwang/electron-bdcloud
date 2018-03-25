@@ -3,13 +3,15 @@
     position: relative;
     height: 100px;
     background-image: linear-gradient(to right, #1590e8, #0e8ee7);
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
 
     .logo,
     .operator {
         position: absolute;
         height: 20px;
         font-size: .85rem;
-        
+        -webkit-app-region: no-drag;
     }
 
     .logo {
@@ -53,6 +55,7 @@
                 height: 58px;
                 border: 1px solid #4fa8ec;
                 border-radius: 5px;
+                -webkit-app-region: no-drag;
             }
 
             .username {
@@ -62,6 +65,7 @@
                 overflow: hidden;
                 white-space: nowrap;
                 text-overflow: ellipsis;
+                -webkit-app-region: no-drag;
                 
                 h2 {
                     font-size: 1.125rem;
@@ -109,6 +113,7 @@
                 
                 li {
                     float: left;
+                    -webkit-app-region: no-drag;
 
                     a {
                         display: block;

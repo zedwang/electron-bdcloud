@@ -38,3 +38,36 @@ $border-color: #e6e3e3;
         height: calc(100vh - 220px);
     }
 }
+
+.checkbox.inline,
+.radio.inline {
+    display: inline-block;
+}
+
+.checkbox,
+.radio {
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+
+    label {
+        min-height: 20px;
+        padding-left: 20px;
+        margin-bottom: 0;
+        font-weight: 400;
+        cursor: pointer;
+    }
+
+    input[type=checkbox], 
+    input[type=radio] {
+        position: absolute;
+        margin-top: 4px\9;
+        margin-left: -20px;
+    }
+}
+
+.text-right {
+    text-align: right;
+}
