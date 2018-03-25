@@ -1,5 +1,6 @@
 # 仿百度云盘客户端
 基于`Electron`,`Webpack3`,`Babel7`,`React16`,`MobX`
+![shortscreen](https://github.com/zedwang/iCloud/blob/master/screenshots/close.png?raw=true)
 
  > electron的官方脚手架只是一个demo，并没有完全的基于业务实现。所以，想通过此项目来系统的接触。最开始是准备抓取百度原盘的API，但是这个工程量并不那么轻松，后来我又换了一种思维方式。其实不太需要真实的API,因为我想体验的是这个过程，那么这个后台交互的过程可以mock，所以renderer里面所有的请求都是main里面的mock server。这样就可能专心的关注页面交互了，这个项目会持续不断的更新完善，有兴趣的可以一起加入进来！
 # Dev
