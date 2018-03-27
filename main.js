@@ -118,3 +118,8 @@ ipcMain.on('hidden-window', (event, args) => {
     mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
   })
 })
+
+/**
+ * 网络检测
+ * 结合na
+ */

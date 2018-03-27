@@ -25,7 +25,7 @@
 * [ ] 网络检测
 * [ ] 自动更新
 * [ ] 系统通知 
-# 踩坑日记
+# 注意事项
  1. electron不同于普通的web程序，涉及到进程通信，所以在webpack编译的时候要配置  `target: 'electron-renderer'`
  1. 比较常见的就是es6`class`this的绑定问题，一般有三种方式解决：
     - 在`constructor`手动bind，或者用`auto-bind`这个报来自动绑定
@@ -36,8 +36,10 @@
  1. 打包体积问题。electron打包的东西出来通常体积比较大，那是因为包含了一个chromuin浏览器和node在里面。但是我们开发的环境中node_modules的体积也是很庞大的。所以我们可以main.js也进行打包，这样就可以不出现冗余的node_modules包。注意的是，在编译main的时候webpack的target要配置为`electron-main`
  1. 字体乱码的问题。这个问题比较2，就是缺少了`<meta charset="UTF-8">`的声明
  1. `electron-packager`适合打包调试，推荐`electron-builder`
+ 1. 要自动更新必须要打nupkg类型的包，`linux`平台并不支持自动更新
+ 1. 一般情况下在render进程中通过remote接口去拿main进程的模块，可以不用显示的发事件
 
 # 体会
  1. MobX vs Redux
-    - 
+    
  2. Electron 
