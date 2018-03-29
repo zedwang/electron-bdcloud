@@ -1,0 +1,145 @@
+@import 'var';
+
+.header {
+    color: $color;
+    position: relative;
+    height: 100px;
+    background-color: $background-header;
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+
+    .logo,
+    .operator {
+        position: absolute;
+        height: 20px;
+        font-size: .85rem;
+        -webkit-app-region: no-drag;
+    }
+
+    .logo {
+        padding: 5px 15px;
+        left: 0;
+        top: 0;
+
+        span {
+            display: inline-block;
+            font-size: 1.2rem;
+            vertical-align: bottom;
+        }
+    }
+
+    .operator {
+        right: 0;
+        top: 0;
+
+        span {
+            cursor: pointer;
+            display: inline-block;
+            padding: 4px 8px;
+
+            &:hover {
+                background: #a4cceb
+            }
+        }
+    }
+
+    .head {
+        display: flex;
+        justify-content: flex-start;
+
+        .profile {
+            width: 260px;
+            padding: 35px 15px 10px 15px;
+
+            .avatar {
+                float: left;
+                width: 58px;
+                height: 58px;
+                border: 1px solid #4fa8ec;
+                border-radius: 5px;
+                -webkit-app-region: no-drag;
+            }
+
+            .username {
+                float: left;
+                padding-left: 8px;
+                max-width: 160px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                -webkit-app-region: no-drag;
+                
+                h2 {
+                    font-size: 1.125rem;
+                    margin-top: 9px;
+                    margin-bottom: 8px;
+                }
+
+                .disk-space {
+                    position: relative;
+                    width: 140px;
+                    height: 18px;
+                    border-radius: 10px;
+                    background: #39618c;
+                    padding: 3px 10px;
+                    font-size: .75rem;
+                    box-shadow: 0 1px 1px 1px #2d9ebb;
+                    overflow: hidden;
+
+                    .used {
+                        position: absolute;
+                        width: 40%;
+                        height: 16px;
+                        background: #34b845;
+                        left: 1px;
+                        top: 1px;
+                        border-radius: 10px;
+                    }
+
+                    .count {
+                        position: absolute;
+                        left: 10px;
+                        top: 3px;
+                        letter-spacing: 1px;
+                    }
+                }
+            }
+        }
+
+        .nav {
+            flex-grow: 1;
+
+            ul {
+                list-style: none;
+                margin: 0;
+                
+                li {
+                    float: left;
+                    -webkit-app-region: no-drag;
+
+                    a {
+                        display: block;
+                        color: #fff;
+                        text-decoration: none;
+                        padding: 26px 15px 15px 15px;
+                        text-align: center;
+                        font-size: 12px;
+
+                        span {
+                            display: block;
+                            width: 45px;
+                            height: 45px;
+                            margin: 0 auto;
+                            text-align: center;
+                            font-size: 2rem;
+                        }
+
+                        &:hover {
+                          background: #3da5fc;  
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

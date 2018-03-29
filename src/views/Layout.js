@@ -10,12 +10,12 @@ class Layout extends Component {
 
     render() {
         const { match, location, history } = this.props
-        return (<div>
+        return (<div className="layout">
             <Header/>
             <Toolbar/>
             <Taskbar/>
             <div className="container">
-                <div className="menu-bar">
+                <div className="side">
                 <Menu/>
                 </div>
                 <div className="content">

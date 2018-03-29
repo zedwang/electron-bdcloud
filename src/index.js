@@ -4,7 +4,7 @@ import Root from './container'
 
 import 'normalize.css'
 import './styles/icomoon/style.css'
-import './styles/global.scss'
+import './styles/index.scss'
 
 
 

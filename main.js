@@ -27,7 +27,8 @@ function createMainWindow() {
     minWidth: 600,
     minHeight: 450,
     frame: false,
-    icon: './resource/logo@2x.png'
+    icon: './resource/logo@2x.png',
+    transparent : true
   })
 
   if (!isProd) {
