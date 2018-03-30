@@ -79,7 +79,7 @@ export default class Header extends Component {
                 <div className="header">
                     <div className="logo">
                         <span className="icon icon-cloud"></span> 百度网盘
-                </div>
+                    </div>
                     <div className="nav">
                         <ul>
                             <li><a href="#"><Glyphicon name="cloud" />我的网盘</a></li>
@@ -90,22 +90,21 @@ export default class Header extends Component {
                     </div>
                     <div className="profile">
                         <div className="avatar">
-                            <img src="" />
                         </div>
                         <div className="username">
                             <h2>{user.userInfo.niceName}</h2>
-                            <div className="disk-space">
-                                <div className="used"></div>
-                                <span className="count">229.37GB/2056.00GB</span>
-                            </div>
+                            <span className="sign"></span>
+                            <a href="#" className="bg-danger">会员中心</a>
+                            
                         </div>
                         <div className="operator">
-                            {this.status}
-                            <Glyphicon name="bell" />
-                            <Glyphicon name="eject" />
-                            <Glyphicon name="icon_minimize" onClick={this.handleMini} />
-                            {btns}
-                            <Glyphicon name="close" onClick={this.handleExit} />
+                            <ul>
+                                <li><a href=""><Glyphicon name="bell" /></a></li>
+                                <li className="separate"><a href=""><Glyphicon name="bell" /></a></li>
+                                <li><a href=""><Glyphicon name="icon_minimize" /></a></li>
+                                {btns}
+                                <li><a href=""><Glyphicon name="close" /></a></li>
+                            </ul>
                         </div>
                     </div>
 
