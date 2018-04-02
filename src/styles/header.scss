@@ -4,30 +4,46 @@
     display: flex;
     color: $color;
     height: 75px;
+    border-bottom: $border-width solid $border-color;
     background-color: $background-header;
+    align-items: center;
     -webkit-user-select: none;
     -webkit-app-region: drag;
 
     .logo {
         width: 165px;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: bold;
-
+        padding: 10px;
+      
         span {
             display: inline-block;
-            width: 30px;
+            width: 38px;
             height: 30px;
+            background-image: url('./images/main_logo.png');
+            background-size: cover;
+            vertical-align: middle;
         }
     }
 
     .nav {
+        -webkit-app-region: no-drag;
+
         > ul {
+            list-style: none;
+
            > li {
+               float: left;
+
                 > a {
                     color: $color;
                     display: block;
-                    padding: 12px; 
+                    padding: 12px 0;
+                    margin: 0 20px;
+                    border-bottom: 2px solid transparent;
+                    text-align: center;
 
+                    &.active,
                     &:hover {
                         color: $color-hover;
                         border-bottom: $border-active-width solid $color-hover;
@@ -38,6 +54,68 @@
     }
 
     .profile {
-        
+        flex-grow: 1;
+        text-align: right;
+
+        .avatar,
+        .username,
+        .operator {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 12px;
+            -webkit-app-region: no-drag;
+        }
+
+        .username {
+            padding: 0 5px;
+            color: #333333;
+
+            span {
+                display: inline-block;
+                padding: 0 5px;
+            }
+
+            .sign {
+                width: 18px;
+                height: 18px;
+                padding-right: 15px;
+            }
+
+            > a {
+                display: inline-block;
+                padding: 5px 10px;
+                border-radius: 15px;
+            }
+        }
+
+        .avatar {
+            width: 35px;
+            height: 35px;
+            background-image: url('./images/head.png');
+            background-size: cover;
+            border-radius: 50%;
+        }
+
+        .operator {
+            padding-right: 10px;
+
+            > ul {
+                list-style: none;
+
+                .separate {
+                    border-left: $border-width solid #d4d4d4;
+                }
+
+                > li {
+                    display: inline-block;
+
+                    > a {
+                        font-size: 14px;
+                        display: block;
+                        padding: 2px 7px;
+                    }
+                }
+            }
+        }
     }
 }

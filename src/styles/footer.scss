@@ -1,6 +1,12 @@
+@import 'var';
+
 .footer {
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 100%;
     height: 30px;
-    border-top: 1px solid #e6e3e3;
+    border-top: 1px solid $border-color;
     font-size: 12px;
     line-height: 30px;
     padding-left: 15px;

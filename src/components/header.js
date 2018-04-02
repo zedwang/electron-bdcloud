@@ -78,30 +78,28 @@ export default class Header extends Component {
             <>
                 <div className="header">
                     <div className="logo">
-                        <span className="icon icon-cloud"></span> 百度网盘
+                        <span></span> 百度网盘
                     </div>
                     <div className="nav">
                         <ul>
-                            <li><a href="#"><Glyphicon name="cloud" />我的网盘</a></li>
-                            <li><a href="#"><Glyphicon name="cloud" />分享</a></li>
-                            <li><a href="#"><Glyphicon name="cloud" />隐藏空间</a></li>
-                            <li><a href="#"><Glyphicon name="cloud" />功能宝箱</a></li>
+                            <li><a href="#" className="active">我的网盘</a></li>
+                            <li><a href="#">分享</a></li>
+                            <li><a href="#">隐藏空间</a></li>
+                            <li><a href="#">功能宝箱</a></li>
                         </ul>
                     </div>
                     <div className="profile">
-                        <div className="avatar">
-                        </div>
+                        <div className="avatar"></div>
                         <div className="username">
-                            <h2>{user.userInfo.niceName}</h2>
+                            <span>{user.userInfo.niceName}</span>
                             <span className="sign"></span>
                             <a href="#" className="bg-danger">会员中心</a>
-                            
                         </div>
                         <div className="operator">
                             <ul>
                                 <li><a href=""><Glyphicon name="bell" /></a></li>
-                                <li className="separate"><a href=""><Glyphicon name="bell" /></a></li>
-                                <li><a href=""><Glyphicon name="icon_minimize" /></a></li>
+                                <li><a href=""><Glyphicon name="bell" /></a></li>
+                                <li className="separate"><a href=""><Glyphicon name="icon_minimize" /></a></li>
                                 {btns}
                                 <li><a href=""><Glyphicon name="close" /></a></li>
                             </ul>

@@ -17,29 +17,26 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-
+    
     &:active,
     &:focus {
         outline: none;
     }
 
     &:hover {
-        outline: 1px solid #3e9bff;
-        background: rgba(205, 250, 252, 0.6);
+        background: rgba(216, 216, 216, 0.6);
     }
 
     span {
         font-size: 1rem;
         position: relative;
         top: 1;
-        color: #3e9bff;
     }
 }
 
 .btn-default {
     border: transparent;
     background: transparent;
-    color: #39618c
 }
 
 .btn-sm {

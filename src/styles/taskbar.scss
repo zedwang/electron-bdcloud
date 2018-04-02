@@ -1,7 +1,8 @@
+@import 'var';
+
 .taskbar {
     padding: 5px 0 5px 15px;
     border-bottom: 1px solid #e6e3e3;
-    border-top: 1px solid #e6e3e3;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,7 +16,7 @@
 
     .link-gray:hover {
         span {
-            color: #3e9bff;
+            color: $color-hover;
         }
     }
 
@@ -54,7 +55,7 @@
             }
 
             &:hover {
-                color: #3e9bff;
+                color: $color-hover;
                 text-decoration: underline;
             }
         }
