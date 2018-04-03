@@ -15,7 +15,7 @@ export default class Menu extends React.Component {
     render() {
         return (
             <ul className="menu">
-                <li><a><Glyphicon name="folder-open" onClick={() => {this.toggleCategory(0)}}/> 全部文件</a>
+                <li><a className={cls({'active':this.props.files.category === 0})} onClick={() => {this.toggleCategory(0)}}><Glyphicon name="folder-open"/> 全部文件</a>
                     <ul>
                         <li><a className={cls({'active':this.props.files.category === 3})} onClick={()=>{this.toggleCategory(3)}}><Glyphicon name="image" /> 图片</a></li>
                         <li><a className={cls({'active':this.props.files.category === 4})} onClick={()=>{this.toggleCategory(4)}}><Glyphicon name="file-text" /> 文档</a></li>

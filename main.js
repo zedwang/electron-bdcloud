@@ -22,13 +22,12 @@ const externalUrl = {
 
 function createMainWindow() {
   const window = new BrowserWindow({
-    width: 900,
+    width: 980,
     height: 600,
     minWidth: 600,
     minHeight: 450,
     frame: false,
-    icon: './resource/logo@2x.png',
-    transparent : true
+    icon: './resource/logo@2x.png'
   })
 
   if (!isProd) {

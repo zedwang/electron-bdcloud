@@ -1,5 +1,11 @@
+@import 'var';
+
 .menu {
-    padding: 8px 5px;
+    padding: 10px 0;
+
+    span {
+        margin-right: 10px;
+    }
 
     li > ul {
         a {
@@ -10,16 +16,29 @@
     li  a {
         display: block;
         text-align: center;
-        padding: 5px 4px;
+        padding: 10px 4px;
         font-size: 12px;
         cursor: default;
 
         &:hover:not(.active) {
-            color: #3e9bff;
+            color: $color-hover;
         }
     }
 
     li a.active {
-        background: rgba(62, 155, 255, 0.4);
+        background: #e6edff;
+        color: $color-hover;
+        position: relative;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 3px;
+            background: $color-hover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+        }
     }
 }

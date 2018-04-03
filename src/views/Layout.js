@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
 import { Header, Toolbar, Taskbar, Footer, Glyphicon, Menu} from '../components'
+import { formatSize } from '../utils'
 
 @inject(stores => ({
     user:stores.user
@@ -9,7 +10,8 @@ import { Header, Toolbar, Taskbar, Footer, Glyphicon, Menu} from '../components'
 class Layout extends Component {
 
     render() {
-        const { match, location, history } = this.props
+        const { match, location, history, user } = this.props;
+        const used = {width: Math.round((user.userInfo.used / user.userInfo.totalSize) * 100)  + '%'};
         return (<div className="layout">
             <Header/>
             <div className="container">
@@ -17,10 +19,10 @@ class Layout extends Component {
                     <Menu/>
                     <div className="aside-foot">
                         <div className="process">
-                            <div className="used"></div>
+                            <div className="used" style={used}></div>
                         </div>
                         <div className="desc">
-                        <span>231G/2056G</span>
+                        <span>{formatSize(user.userInfo.used)} / {formatSize(user.userInfo.totalSize)}</span>
                         <a href="#" >扩容至5T</a>
                         
                         </div>

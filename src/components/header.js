@@ -4,6 +4,7 @@ import { observer, inject } from 'mobx-react'
 import Glyphicon from './glyphicon'
 import Modal from './modal'
 import Button from './button'
+import Dropdown from './dropdown'
 
 import '../styles/header.scss'
 
@@ -91,7 +92,9 @@ export default class Header extends Component {
                     <div className="profile">
                         <div className="avatar"></div>
                         <div className="username">
-                            <span>{user.userInfo.niceName}</span>
+                            <Dropdown trigger={user.userInfo.niceName} hoverable flowing>
+                            {user.userInfo.niceName}
+                            </Dropdown>
                             <span className="sign"></span>
                             <a href="#" className="bg-danger">会员中心</a>
                         </div>

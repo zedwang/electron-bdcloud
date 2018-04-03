@@ -13,9 +13,9 @@ module.exports = async function searchController(req, res) {
         await userModel.insert({
             niceName: 'Hi,' + os.hostname(),
             mail: 'wzd*****@sina.com',
-            totalSize: '1099511627776',
+            totalSize: '109951162777',
             isVip: true,
-            used: '5368709120'
+            used: '53687091200'
         })
     }
 
