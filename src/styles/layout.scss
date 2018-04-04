@@ -42,6 +42,8 @@ a {
     }
 }
 
+
+
 .container {
     display: flex;
 
@@ -95,6 +97,24 @@ a {
 
     .content {
         flex-grow: 1;
+        position: relative;
+
+        .dragable::before {
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items:  center;
+            content: 'Drag and drop a file!';
+            font-size: 24px;
+            position: absolute;
+            top:  82px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 189px);
+            background: rgba(238, 240, 246, 0.733);;
+            border: 6px dashed $border-color;
+            text-shadow: 0 13.36px 8.896px #c4b59d,0 -2px 1px #fff;
+        }
     }
 
     .aside,

@@ -4,10 +4,9 @@ import { remote, ipcRenderer } from 'electron';
 
 class Window {
     window
-    tray = null
     // normal max min 
     @observable isMax
-    
+    @observable showLandingPoint = false;
     constructor() {
         this.window = remote.getCurrentWindow();
         this.isMax = this.window.isMaximized();
@@ -31,13 +30,14 @@ class Window {
         this.window.restore()
     }
 
-  
-
     hiddenWindow() {
         ipcRenderer.send('hidden-window', 'hello')
        
     }
 
+    showLanding() {
+        this.showLandingPoint = !this.showLandingPoint
+    }
 }
 
 const window = new Window()

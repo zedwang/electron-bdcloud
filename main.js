@@ -24,8 +24,8 @@ function createMainWindow() {
   const window = new BrowserWindow({
     width: 980,
     height: 600,
-    minWidth: 600,
-    minHeight: 450,
+    minWidth: 980,
+    minHeight: 600,
     frame: false,
     icon: './resource/logo@2x.png'
   })
@@ -55,6 +55,15 @@ function createMainWindow() {
     tray.setHighlightMode('never')
   })
 
+  window.on('reize', () => {
+    const [width, height] = window.getSize()
+    if (width < 980) {
+      window.setSize(980, height)
+    }
+    if (height < 600) {
+      window.setSize(width, height)
+    }
+  })
   window.webContents.on('devtools-opened', () => {
     window.focus()
     setImmediate(() => {

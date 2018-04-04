@@ -14,7 +14,6 @@ export default class Dropdown extends Component {
     onHover = (ev) => {
         console.log('hover', ev)
         const target = ev.target;
-        consol
     }
 
     render() {

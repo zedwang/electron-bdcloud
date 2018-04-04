@@ -3,11 +3,16 @@ import { observer, inject } from 'mobx-react'
 import { Header, Toolbar, Taskbar, Footer, Glyphicon, Menu} from '../components'
 import { formatSize } from '../utils'
 
+window.ondragover = (e) => e.preventDefault()
+window.ondrop = (e) => e.preventDefault()
+
 @inject(stores => ({
     user:stores.user
+    
 }))
 @observer
 class Layout extends Component {
+    
 
     render() {
         const { match, location, history, user } = this.props;
@@ -32,6 +37,7 @@ class Layout extends Component {
                     <Toolbar/>
                     <Taskbar/>
                     {this.props.children}
+                   
                     <Footer/>
                 </div>
             </div>
