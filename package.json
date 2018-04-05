@@ -5,7 +5,7 @@
   "main": "./main.js",
   "scripts": {
     "start": "npm-run-all --parallel serve dev",
-    "serve": "cross-env NODE_ENV=development pm2 kill && pm2 start ./server.js --no-daemon",
+    "serve": "cross-env NODE_ENV=development node ./server.js",
     "dev": "cross-env NODE_ENV=development electron . --debug",
     "compile": "cross-env NODE_ENV=production && webpack",
     "compile:main": "cross-env NODE_ENV=production && webpack --config ./build/webpack.electron.js",

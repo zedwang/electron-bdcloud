@@ -7,6 +7,9 @@ module.exports = async function searchController(req, res) {
     let param = {}
     if (!isEmpty(req.query)) {
         param = req.query
+        param.category = Number(param.category)
+        if (param.category === 0) 
+            delete param.category
     }
     console.log(param)
     let docs = await fileModel.find(param)

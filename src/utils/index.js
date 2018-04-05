@@ -18,3 +18,14 @@ export function icon(type) {
     return 'other'
 
 }
+
+export function queryParams(params) {
+    let keys = Object.keys(params)
+    if (keys.length) {
+        return '?' + keys
+        .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
+        .join('&');
+    }
+    return ''
+   
+}

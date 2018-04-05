@@ -1,4 +1,5 @@
 import { observable, action } from 'mobx';
+import { queryParams } from '../utils'
 
 class Files {
     
@@ -13,9 +14,10 @@ class Files {
      * {4:文档,1:视频,7:种子,2:音乐,6:其他,3:图片}
      */
     // fetch 默认的模式是不带cookie等数据到服务器上去的
-    async fetchFiles(params = {}) {
-        let files = await fetch('/search', {
-            qs: params,
+    async fetchFiles(params) {
+        console.log(params)
+        let url = `/search${params && params.length ? '?' + params : ''}`
+        let files = await fetch(url, {
             cache: 'reload'
         })
         let { data } = await files.json(); 
@@ -36,10 +38,7 @@ class Files {
             },
             body: JSON.stringify(file)
         })
-
-        if (res) {
-            this.fetchFiles(params)
-        }
+        return res;
     }
 
 }
