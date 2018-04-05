@@ -24,14 +24,17 @@ class Home extends Component {
             e.stopPropagation()
             this.props.window.showLanding()
         }
-
-        let params = new URLSearchParams()
-        params.append('category', this.props.files.category)
-        this.props.files.fetchFiles(params)
+        let params = {}
+        if (this.props.files.category) {
+            params = new URLSearchParams()
+            params.append('category', this.props.files.category)
+        }
+       
+        this.props.files.fetchFiles()
 
     }
 
-    handleDrop = (e) => {
+    handleDrop = async (e) => {
         e.preventDefault()
         e.stopPropagation()
         this.props.window.showLanding()
@@ -45,8 +48,8 @@ class Home extends Component {
             type: likeArray.type,
             lastModified: likeArray.lastModified
         }
-        this.props.files.upload(file, params)
-
+        this.props.files.upload(file, {path: this.props.files.path})
+       
     }
 
     render() {

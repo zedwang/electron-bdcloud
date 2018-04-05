@@ -20,6 +20,10 @@ const externalUrl = {
 
 }
 
+// if (!isProd) {
+//   require('electron-reload')(path.join(__dirname, 'backend'));
+// }
+
 function createMainWindow() {
   const window = new BrowserWindow({
     width: 980,

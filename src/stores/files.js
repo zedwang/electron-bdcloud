@@ -13,8 +13,11 @@ class Files {
      * {4:文档,1:视频,7:种子,2:音乐,6:其他,3:图片}
      */
     // fetch 默认的模式是不带cookie等数据到服务器上去的
-    async fetchFiles(params) {
-        let files = await fetch('/search?'+ params)
+    async fetchFiles(params = {}) {
+        let files = await fetch('/search', {
+            qs: params,
+            cache: 'reload'
+        })
         let { data } = await files.json(); 
         this.data = data;
     }   
@@ -24,7 +27,8 @@ class Files {
     }
 
     async upload(file, params) {
-        const res = await fetch('/upload?' + params, {
+        const res = await fetch('/upload', {
+            qs: params,
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -33,7 +37,9 @@ class Files {
             body: JSON.stringify(file)
         })
 
-        return res;
+        if (res) {
+            this.fetchFiles(params)
+        }
     }
 
 }

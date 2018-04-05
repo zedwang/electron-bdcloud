@@ -1,13 +1,11 @@
 .m-icons {
-    display: flex;
     padding: 5px;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    align-content: center;
-    justify-content: flex-start;
+    height: calc(100vh - 189px);
+    overflow: auto;
 
     .m-icon {
         padding: 3px;
+        float: left;
 
         a {
             text-align: center;
@@ -50,18 +48,20 @@
                 background-image: url('./images/fileType/VideoType.png')
             }
 
-            .ico-text {
+            .ico-txt {
                 background-image: url('./images/fileType/TxtType.png')
             }
 
-            .ico-ps {
+            .ico-image {
+                background-image: url('./images/fileType/ImgType.png')
             }
 
             .ico-pdf {
                 background-image: url('./images/fileType/PdfType.png')
             }
 
-            .ico-default {
+            .ico-other {
+                background-image: url('./images/fileType/OtherType.png')
             }
 
             .ico-links {

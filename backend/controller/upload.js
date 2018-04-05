@@ -1,13 +1,14 @@
 const _path = require('path')
+const { signType } = require('../utils')
 const fileModel = require('../nedbPromise')('files.db')
 
 module.exports = async function searchController(req, res) {
-    const { category, path } = req.query
+    const { path = '/' } = req.query
     const file = req.body
-    
+    console.log(file)
     let docs = await fileModel.insert(
         {
-            category: category,
+            category: signType(file.type),
             path: path,
             ext: _path.extname(file.name).substr(1),
             name: file.name,

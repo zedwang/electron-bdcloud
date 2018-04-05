@@ -1,8 +1,15 @@
-const fileModel = require('../nedbPromise')('files.db')
+
+const { isEmpty } = require('../utils')
 
 module.exports = async function searchController(req, res) {
-    const { category, path } = req.query
-    let docs = await fileModel.find({category, path})
+    const fileModel = require('../nedbPromise')('files.db')
+
+    let param = {}
+    if (!isEmpty(req.query)) {
+        param = req.query
+    }
+    console.log(param)
+    let docs = await fileModel.find(param)
     res.charset = 'utf-8'
     res.json({
         code: 0,

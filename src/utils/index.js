@@ -9,3 +9,12 @@ export function formatSize(size) {
     }
     return volume + unit;
 }
+
+export function icon(type) {
+    const res = type.match(/image|zip|word|xls|mp3/)
+    if (res) {
+        return type.match(res)[0]
+    }
+    return 'other'
+
+}

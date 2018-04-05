@@ -50,6 +50,7 @@ a {
     .aside {
         width: 160px;
         border-right: $border-width solid $border-color;
+        flex-shrink: 0;
         
         .menu-bar {
             flex-shrink: 0;
