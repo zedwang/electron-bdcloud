@@ -11,8 +11,13 @@ export default class Menu extends React.Component {
     toggleCategory = (type) => {
         this.props.files.setCategory(type)
         let params = new URLSearchParams()
-        params.append('path', '/')
-        params.append('category', this.props.files.category)
+        if (type === 0) {
+            params.append('dir', '/')
+            this.props.files.breadcrumb = []
+            this.props.files.dir = ''
+        } else {
+            params.append('category', this.props.files.category)
+        }
         this.props.files.fetchFiles(params.toString())
     }
 

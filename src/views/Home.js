@@ -16,29 +16,34 @@ class Home extends Component {
         window.ondragenter = (e) => {
             e.preventDefault()
             e.stopPropagation()
-            this.props.window.showLanding()
+            if (this.props.files.category === 0) {
+                this.props.window.showLanding()
+            }
         }
 
         window.ondragleave = (e) => {
             e.preventDefault()
             e.stopPropagation()
-            this.props.window.showLanding()
+            if (this.props.files.category === 0) {
+                this.props.window.showLanding()
+            }
         }
+
         let params = new URLSearchParams()
-        if (this.props.files.category) {
-            params.append('category', this.props.files.category)
-        }
-         this.props.files.fetchFiles(params.toString())
+        params.append('dir', '/')
+        this.props.files.fetchFiles(params.toString())
 
     }
 
     handleDrop = async (e) => {
         e.preventDefault()
         e.stopPropagation()
+        if (this.props.files.category != 0) return false
+
         this.props.window.showLanding()
         let params = new URLSearchParams()
         params.append('category', this.props.files.category)
-        params.append('path', this.props.files.path)
+        params.append('dir', this.props.files.dir)
         let likeArray = e.dataTransfer.files[0]
         const file = {
             name: likeArray.name,
@@ -46,8 +51,8 @@ class Home extends Component {
             type: likeArray.type,
             lastModified: likeArray.lastModified
         }
-        await this.props.files.upload(file, {path: this.props.files.path})
-       this.props.file.fetchFiles(params.toString())
+        await this.props.files.upload(file, {dir: this.props.files.dir})
+       this.props.files.fetchFiles(params.toString())
     }
 
     render() {

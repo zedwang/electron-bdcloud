@@ -1,3 +1,4 @@
+@import 'var';
 .m-icons {
     padding: 5px;
     height: calc(100vh - 189px);
@@ -21,7 +22,7 @@
 
             &:hover {
                 background: rgba(234, 249, 252, 0.466);
-                box-shadow: 0 0 1px 1px #d0e9fd;
+                box-shadow: 0 0 1px 1px $color-hover;
                 border-radius: 2px;
             }
 

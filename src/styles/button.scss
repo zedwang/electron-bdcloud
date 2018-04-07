@@ -43,6 +43,15 @@
     padding: 3px;
 }
 
+button[disabled] {
+    color: #ddd;
+    cursor: not-allowed;
+
+    &:hover {
+        background: transparent;
+    }
+}
+
 .btn-link,
 .btn-link:hover {
     background: transparent;

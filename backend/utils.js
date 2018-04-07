@@ -9,15 +9,19 @@ const category = {
     other: 7
 }
 module.exports = {
-    isEmpty: function(obj) {
+    isNotEmpty: function(obj) {
+        if (!obj) return false
+        if ( typeof obj === 'string') {
+            return Boolean(obj.length)
+        }
         if (Array.isArray(obj)) {
-            return Array.length === 0
+            return Boolean(Array.length)
         }
         let count = 0;
         for (let k in obj) {
             count++
         }
-        return count === 0
+        return Boolean(count)
     },
     signType: function(type) {
         const res = type.match(/image|ppt|doc|xls|video|exe|mp3/)

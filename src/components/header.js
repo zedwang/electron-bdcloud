@@ -69,9 +69,9 @@ export default class Header extends Component {
         const state = window.isMax;
         const btns = (() => {
             if (state) {
-                return (<Glyphicon name="icon_maximize" onClick={this.handleRestore} />)
+                return (<li><a href="javascript:;"><Glyphicon name="icon_maximize" onClick={this.handleRestore} /></a></li>)
             } else {
-                return (<Glyphicon name="enlarge" onClick={this.handleMax} />)
+                return (<li><a href="javascript:;"><Glyphicon name="enlarge" onClick={this.handleMax} /></a></li>)
             }
         })()
 
@@ -100,11 +100,11 @@ export default class Header extends Component {
                         </div>
                         <div className="operator">
                             <ul>
-                                <li><a href=""><Glyphicon name="bell" /></a></li>
-                                <li><a href=""><Glyphicon name="bell" /></a></li>
-                                <li className="separate"><a href=""><Glyphicon name="icon_minimize" /></a></li>
+                                <li><a href="javascript:;"><Glyphicon name="bell" /></a></li>
+                                <li><a href="javascript:;"><Glyphicon name="bell" /></a></li>
+                                <li className="separate"><a href="javascript:;"><Glyphicon name="icon_minimize" /></a></li>
                                 {btns}
-                                <li><a href=""><Glyphicon name="close" /></a></li>
+                                <li><a href="javascript:;" onClick={this.handleExit}><Glyphicon name="close" /></a></li>
                             </ul>
                         </div>
                     </div>

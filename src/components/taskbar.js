@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { observer, inject } from 'mobx-react'
 import Button from './button'
 import Glyphicon from './glyphicon'
-
+import Breadcrumb from './breadcrumb'
 import '../styles/taskbar.scss'
 
 @inject(stores => ({
@@ -39,16 +39,13 @@ export default class Taskbar extends Component {
                     <Button className="link-gray" type="link" size="sm" icon="arrow-right2"/>
                     <Button className="link-gray" type="link" size="sm" icon="spinner11"/>
                 </div>
-                <div className="bread">
-                    <a href="#"><Glyphicon name="home"/> 我的网盘 <span>></span></a>
-                    <a href="#">图片 <span>></span></a>
-                </div>
+                <Breadcrumb/>
                 <div className="search">
                     <input type="text" value={this.state.q} placeholder="搜索我的网盘文件" onChange={this.handleChange}/>
                     <Glyphicon name="search" onClick={this.handleSearch}/>
                 </div>
                 <div className="view-mode">
-                    <Button className="link-gray" title="分类查看" type="link" size="sm" icon="menu"/>
+                    {/* <Button className="link-gray" title="分类查看" type="link" size="sm" icon="menu"/> */}
                     <Button className="link-gray" title="切换查看模式" type="link" size="sm" icon="list"/>
                     {/* <Glyphicon name="images"/> */}
                 </div>

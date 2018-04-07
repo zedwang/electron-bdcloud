@@ -3,19 +3,28 @@ import { queryParams } from '../utils'
 
 class Files {
     
+    @observable breadcrumb = ['/']
     @observable data = [];
     @observable category = 0;
-    @observable path = '/';
+    @observable dir = '';
 
 
-
+    async createFolder(name) {
+        return await fetch('/folder',{
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name, dir: this.dir})
+        })
+    }
     /**
      * type 
      * {4:文档,1:视频,7:种子,2:音乐,6:其他,3:图片}
      */
     // fetch 默认的模式是不带cookie等数据到服务器上去的
     async fetchFiles(params) {
-        console.log(params)
         let url = `/search${params && params.length ? '?' + params : ''}`
         let files = await fetch(url, {
             cache: 'reload'

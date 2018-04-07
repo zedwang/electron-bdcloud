@@ -11,7 +11,7 @@ export function formatSize(size) {
 }
 
 export function icon(type) {
-    const res = type.match(/image|zip|word|xls|mp3/)
+    const res = type.match(/image|zip|word|xls|mp3|folder/)
     if (res) {
         return type.match(res)[0]
     }
