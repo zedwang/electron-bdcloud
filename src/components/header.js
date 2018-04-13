@@ -77,7 +77,7 @@ export default class Header extends Component {
       })();
 
       return (
-            <>'               '<div className="header">
+            <><div className="header">
               <div className="logo">
                 <span></span> 百度网盘
               </div>
@@ -108,9 +108,7 @@ export default class Header extends Component {
                   </ul>
                 </div>
               </div>
-
-            </div>'
-               '{this.showCloseDialog ? (
+            </div>{this.showCloseDialog ? (
               <Modal>
                 <div className="modal">
                   <div className="modal-head">
@@ -134,7 +132,8 @@ export default class Header extends Component {
                     <Button className="btn btn-default" onClick={this.onCancel} text="取消" />
                   </div>
                 </div>
-              </Modal>) : null}'           '</>
+              </Modal>) : null
+            }</>
 
       );
 

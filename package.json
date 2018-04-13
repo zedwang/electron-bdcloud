@@ -38,7 +38,7 @@
     }
   },
   "license": "MIT",
-  "pre-commit": "lint",
+  "pre-commit": ["lint"],
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.39",
     "@babel/plugin-proposal-class-properties": "^7.0.0-beta.39",
