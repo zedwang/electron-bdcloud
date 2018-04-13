@@ -1,28 +1,24 @@
-'use strict'
+'use strict';
 
-const { app, BrowserWindow, ipcMain, Tray, Menu, shell } = require('electron')
-const path = require('path')
-const { format } = require('url')
-const server = require('./backend')
-const config = require('./config')
+const { app, BrowserWindow, ipcMain, Tray, Menu, shell } = require('electron');
+const path = require('path');
+const { format } = require('url');
+const server = require('./backend');
+const config = require('./config');
+// const { enableLiveReload } = require('electron-compile');
 
-const isProd = process.env.NODE_ENV.trim() === 'production'
+const isProd = process.env.NODE_ENV.trim() === 'production';
 
 // global reference to mainWindow (necessary to prevent window from being garbage collected)
-let mainWindow
-let tray = null
+let mainWindow;
+let tray = null;
 
 const externalUrl = {
   setting: 'https://github.com/zedwang/iCloud/',
   issue: 'https://github.com/zedwang/iCloud/issues',
   help: 'https://github.com/zedwang/iCloud/',
   about: 'https://github.com/zedwang/iCloud/',
-
-}
-
-// if (!isProd) {
-//   require('electron-reload')(path.join(__dirname, 'backend'));
-// }
+};
 
 function createMainWindow() {
   const window = new BrowserWindow({
@@ -32,105 +28,107 @@ function createMainWindow() {
     minHeight: 600,
     frame: false,
     icon: './resource/logo@2x.png'
-  })
+  });
 
   if (!isProd) {
-    window.webContents.openDevTools()
-    window.loadURL('http://localhost:8597')
-  }
-  else {
+    window.webContents.openDevTools();
+    window.loadURL('http://localhost:8597');
+  } else {
     window.loadURL(format({
       pathname: path.join(__dirname, 'dist', 'index.html'),
       protocol: 'file',
       slashes: true
-    }))
+    }));
   }
 
   window.on('closed', () => {
-    mainWindow = null
-    tray.destroy()
-  })
+    mainWindow = null;
+    tray.destroy();
+  });
 
   window.on('show', () => {
-    tray.setHighlightMode('always')
-  })
+    tray.setHighlightMode('always');
+  });
 
   window.on('hide', () => {
-    tray.setHighlightMode('never')
-  })
+    tray.setHighlightMode('never');
+  });
 
   window.on('reize', () => {
-    const [width, height] = window.getSize()
+    const [width, height] = window.getSize();
     if (width < 980) {
-      window.setSize(980, height)
+      window.setSize(980, height);
     }
     if (height < 600) {
-      window.setSize(width, height)
+      window.setSize(width, height);
     }
-  })
+  });
   window.webContents.on('devtools-opened', () => {
-    window.focus()
+    window.focus();
     setImmediate(() => {
-      window.focus()
-    })
-  })
+      window.focus();
+    });
+  });
 
-  return window
+  return window;
 }
 
 
-function menuClick(menuItem, browserWindow, event) {
-  console.log(menuItem.id)
-  shell.openExternal(externalUrl[menuItem.id])
+function menuClick(menuItem) {
+  console.log(menuItem.id);
+  shell.openExternal(externalUrl[menuItem.id]);
 }
 
 
-server.listen(config.get('api.port'), 'localhost', ()=> console.log(`API Server listening on port http://localhost:9527`))
+server.listen(config.get('api.port'), 'localhost', ()=> console.log('API Server listening on port http://localhost:9527'));
 
 // quit application when all windows are closed
 app.on('window-all-closed', () => {
   // on macOS it is common for applications to stay open until the user explicitly quits
   if (process.platform !== 'darwin') {
-    app.quit()
+    app.quit();
     
   }
-})
+});
 
 app.on('activate', () => {
   // on macOS it is common to re-create a window even after all windows have been closed
   if (mainWindow === null) {
-    mainWindow = createMainWindow()
+    mainWindow = createMainWindow();
   }
-})
+});
 
 // create main BrowserWindow when electron is ready
 app.on('ready', () => {
-  mainWindow = createMainWindow()
-})
-
-
-
-ipcMain.on('hidden-window', (event, args) => {
-  if (!tray) {
-      tray  = new Tray('./resource/logo.png')
+  mainWindow = createMainWindow();
+  if (!isProd) {
+    // enableLiveReload({ strategy: 'react-hmr'});`
   }
-  tray.setToolTip('山寨云盘')
+});
+
+
+
+ipcMain.on('hidden-window', () => {
+  if (!tray) {
+    tray  = new Tray('./resource/logo.png');
+  }
+  tray.setToolTip('山寨云盘');
   mainWindow.hide();
 
   tray.on('right-click', () => {
-      const contextMenu = Menu.buildFromTemplate([
-          {id: 'setting', label: '设置', click: menuClick},
-          {id: 'issue', label: '意见反馈', click: menuClick},
-          {id: 'help', label: '帮助', click: menuClick},
-          {id: 'about', label: '关于', click: menuClick},
-          {id: 'setting', label: '退出', role: 'quit'}
-        ])
-        tray.setContextMenu(contextMenu)
-  })
+    const contextMenu = Menu.buildFromTemplate([
+      {id: 'setting', label: '设置', click: menuClick},
+      {id: 'issue', label: '意见反馈', click: menuClick},
+      {id: 'help', label: '帮助', click: menuClick},
+      {id: 'about', label: '关于', click: menuClick},
+      {id: 'setting', label: '退出', role: 'quit'}
+    ]);
+    tray.setContextMenu(contextMenu);
+  });
   tray.on('click', () => {
-    mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show()
-  })
-})
+    mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
+  });
+});
 
 /**
  * 网络检测

@@ -1,23 +1,23 @@
-import React, { Component } from 'react'
-import { Provider } from 'mobx-react'
-import { BrowserRouter } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Provider } from 'mobx-react';
+import { BrowserRouter } from 'react-router-dom';
 // import { ipcRenderer, remote, shell } from 'electron';
-import routes from '../routes'
-import stores from '../stores'
+import routes from '../routes';
+import stores from '../stores';
 
 class App extends Component {
-    componentDidMount() {
+  componentDidMount() {
 
-    }
+  }
 
-    render() {
-        return (<Provider {...stores } test={{}}>
-            <BrowserRouter>
-                {routes}
-            </BrowserRouter>
+  render() {
+    return (<Provider {...stores } test={{}}>
+      <BrowserRouter>
+        {routes}
+      </BrowserRouter>
 
-        </Provider>)
-    }
+    </Provider>);
+  }
 }
 
-export default App
+export default App;

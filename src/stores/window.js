@@ -1,4 +1,4 @@
-import { observable, action, computed } from 'mobx';
+import { observable } from 'mobx';
 import { remote, ipcRenderer } from 'electron';
 
 
@@ -8,40 +8,40 @@ class Window {
     @observable isMax
     @observable showLandingPoint = false;
     constructor() {
-        this.window = remote.getCurrentWindow();
-        this.isMax = this.window.isMaximized();
+      this.window = remote.getCurrentWindow();
+      this.isMax = this.window.isMaximized();
     }
 
     exit() {
-        this.window.close();
+      this.window.close();
     }
  
     mini() {
-        this.window.minimize()
+      this.window.minimize();
     }
 
     max() {
-        this.isMax = !this.isMax;
-        this.window.maximize()
+      this.isMax = !this.isMax;
+      this.window.maximize();
     }
 
     restore() {
-        this.isMax = !this.isMax;
-        this.window.restore()
+      this.isMax = !this.isMax;
+      this.window.restore();
     }
 
     hiddenWindow() {
-        ipcRenderer.send('hidden-window', 'hello')
+      ipcRenderer.send('hidden-window', 'hello');
        
     }
 
     showLanding() {
-        this.showLandingPoint = !this.showLandingPoint
+      this.showLandingPoint = !this.showLandingPoint;
     }
 }
 
-const window = new Window()
+const window = new Window();
 
-export default window
+export default window;
 
-export {Window}
+export {Window};

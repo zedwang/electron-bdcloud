@@ -5,10 +5,10 @@ class Login {
 
 
     @action login() {
-        login.isLogin = true;
+      login.isLogin = true;
     }
 }
 
-const login = new Login()
+const login = new Login();
 
-export default login
+export default login;

@@ -1,5 +1,4 @@
-import { observable, action } from 'mobx';
-import { queryParams } from '../utils'
+import { observable } from 'mobx';
 
 class Files {
     
@@ -10,14 +9,14 @@ class Files {
 
 
     async createFolder(name) {
-        return await fetch('/folder',{
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({name, dir: this.dir})
-        })
+      return await fetch('/folder',{
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({name, dir: this.dir})
+      });
     }
     /**
      * type 
@@ -25,31 +24,31 @@ class Files {
      */
     // fetch 默认的模式是不带cookie等数据到服务器上去的
     async fetchFiles(params) {
-        let url = `/search${params && params.length ? '?' + params : ''}`
-        let files = await fetch(url, {
-            cache: 'reload'
-        })
-        let { data } = await files.json(); 
-        this.data = data;
+      const url = `/search${params && params.length ? '?' + params : ''}`;
+      const files = await fetch(url, {
+        cache: 'reload'
+      });
+      const { data } = await files.json(); 
+      this.data = data;
     }   
 
-    setCategory(type){
-        this.category = type;
+    setCategory(type) {
+      this.category = type;
     }
 
     async upload(file, params) {
-        const res = await fetch('/upload', {
-            qs: params,
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(file)
-        })
-        return res;
+      const res = await fetch('/upload', {
+        qs: params,
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(file)
+      });
+      return res;
     }
 
 }
 
-export default new Files()
+export default new Files();

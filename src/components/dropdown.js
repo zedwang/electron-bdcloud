@@ -1,22 +1,20 @@
-import React, {Component} from 'react'
-
+import React, {Component} from 'react';
 
 export default class Dropdown extends Component {
 
-    constructor() {
-        super()
-    }
+  constructor() {
+    super();
+  }
 
-    componentDidMount() {
-        console.log('node', this.node)
-    }
+  componentDidMount() {
+    console.log('node', this.node);
+  }
 
     onHover = (ev) => {
-        console.log('hover', ev)
-        const target = ev.target;
+      console.log('hover', ev);
     }
 
     render() {
-        return (<span ref={(elm) => this.node = elm} onMouseOver={this.onHover}>{this.props.children}</span>)
+      return (<span ref={(elm) => this.node = elm} onMouseOver={this.onHover}>{this.props.children}</span>);
     }
 }

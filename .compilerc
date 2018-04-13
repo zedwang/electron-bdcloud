@@ -1,0 +1,5 @@
+{
+    "application/javascript": {
+        "plugins": ["react-hot-loader/babel"]
+    }
+}

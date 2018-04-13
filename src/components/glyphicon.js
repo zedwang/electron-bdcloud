@@ -3,16 +3,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Glyphicon = (props) => {
-    const prefix = 'icon'
-    const { name, ...other } = props;
+  const prefix = 'icon';
+  const { name, ...other } = props;
 
-    const classes = `icon-${name}`;
+  const classes = `icon-${name}`;
 
-    return <span className={classNames(prefix, classes)} {...other}/>
-}
+  return <span className={classNames(prefix, classes)} {...other}/>;
+};
 
 Glyphicon.propTypes = {
-    name: PropTypes.string.isRequired
-}
+  name: PropTypes.string.isRequired
+};
 
-export default Glyphicon
+export default Glyphicon;

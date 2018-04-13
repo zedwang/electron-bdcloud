@@ -1,16 +1,16 @@
 import React from 'react';
 import {
-    withRouter,
-    Route,
+  withRouter,
+  Route,
 } from 'react-router-dom';
-import { Layout, Home, NoMatch } from '../views'
+import { Layout, Home } from '../views';
 
 
-const Router = withRouter((props) => <Layout {...props}/>)
+const Router = withRouter((props) => <Layout {...props}/>);
 export default (
-    /* eslint-disable */
+/* eslint-disable */
     <Router>
         <Route path="/" component={Home} />
     </Router>
     /* eslint-enable */
-)
+);

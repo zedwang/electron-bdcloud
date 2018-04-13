@@ -1,6 +1,5 @@
-import Layout from './Layout'
-import Home from './Home'
-import NoMatch from './NoMatch'
+import Layout from './Layout';
+import Home from './Home';
 
-export {Layout, Home}
+export {Layout, Home};
 

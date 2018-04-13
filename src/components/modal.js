@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import ReactDOM from 'react-dom';
-import { observer, inject } from 'mobx-react'
+// import { observer, inject } from 'mobx-react';
 
-import '../styles/modal.scss'
+import '../styles/modal.scss';
 // These two containers are siblings in the DOM
 const modalRoot = document.getElementsByTagName('body')[0];
 

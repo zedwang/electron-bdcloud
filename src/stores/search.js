@@ -6,11 +6,11 @@ class Search {
 
     @action 
     search(q) {
-        this.text = q;
-        console.log(q);
+      this.text = q;
+      console.log(q);
     }
 }
 
-const search = new Search()
+const search = new Search();
 
-export default search
+export default search;

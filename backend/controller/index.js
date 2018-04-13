@@ -1,9 +1,9 @@
-const user = require('./user')
-const file = require('./file')
+const user = require('./user');
+const file = require('./file');
 
 
 
 module.exports = {
-    user,
-    file
-}
+  user,
+  file
+};

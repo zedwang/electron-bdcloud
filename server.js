@@ -16,23 +16,23 @@ const compiler = webpack(webpackConfig);
 
 console.log(process.env.NODE_ENV);
 app.use(
-    webpackDevMiddleware(compiler, {
-        contentBase: webpackConfig.output.path,
-        publicPath: config.get('webpack.public.path'),
-        stats: {
-            colors: true
-        },
-    })
+  webpackDevMiddleware(compiler, {
+    contentBase: webpackConfig.output.path,
+    publicPath: config.get('webpack.public.path'),
+    stats: {
+      colors: true
+    },
+  })
 );
 app.use(webpackHotMiddleware(compiler));
 
-app.use('/', proxy({target: 'http://localhost:9527', changeOrigin: true}))
+app.use('/', proxy({target: 'http://localhost:9527', changeOrigin: true}));
 
 app.listen(config.get('webpack.port'), config.get('webpack.host'), err => {
-    if (err) {
-        console.error(err);
-        return;
-    }
+  if (err) {
+    console.error(err);
+    return;
+  }
 
-    console.log(`Server is running with port ${config.get('webpack.port')} 👏`);
+  console.log(`Server is running with port ${config.get('webpack.port')} 👏`);
 });
