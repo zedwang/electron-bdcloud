@@ -1,8 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import Glyphicon from './glyphicon';
-
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import '../styles/button.scss';
 
 const defaultProps = {
@@ -22,11 +21,11 @@ function prefix(...props) {
 }
 
 const Button = (props) => {
-  const { type, size, disabled, icon, text, className, ...other } = props;
+  const { type, size, disabled, icon, text, className, active, ...other } = props;
 
   return (
-    <button className={classNames('btn', prefix(type, size), className)} {...other} disabled={disabled}>
-      {icon ? <Glyphicon name={icon}/> : ''}&nbsp;{text}
+    <button className={classNames('btn', prefix(type, size), className, {'active': active})} {...other} disabled={disabled}>
+      {icon ? <FontAwesomeIcon icon={icon}/> : ''}&nbsp;{text}
     </button>
   );
 };

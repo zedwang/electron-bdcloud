@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { observer, inject } from 'mobx-react';
-import Glyphicon from './glyphicon';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 
 @inject('files')
@@ -25,7 +25,7 @@ export default class Breadcrumb extends Component {
       const nav = breadcrumb.map((item, index) => {
         absPath += item;
         if (index < 1) {
-          return(<a href="javascript:;" onClick={(e)=>{this.handleJumpTo(e, index);}}><Glyphicon name="home"/> 我的网盘 <span>&gt;</span></a>);
+          return(<a href="javascript:;" key={index} onClick={(e)=>{this.handleJumpTo(e, index);}}><FontAwesomeIcon icon="home"/> 我的网盘 <span>&gt;</span></a>);
         }
         if (!breadcrumb[index + 1]) {
           return(

@@ -38,7 +38,9 @@
     }
   },
   "license": "MIT",
-  "pre-commit": ["lint"],
+  "pre-commit": [
+    "lint"
+  ],
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.39",
     "@babel/plugin-proposal-class-properties": "^7.0.0-beta.39",
@@ -89,6 +91,10 @@
     "webpack-hot-middleware": "^2.21.2"
   },
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.5",
+    "@fortawesome/fontawesome-free-regular": "^5.0.10",
+    "@fortawesome/fontawesome-free-solid": "^5.0.10",
+    "@fortawesome/react-fontawesome": "^0.0.18",
     "classnames": "^2.2.5",
     "express": "^4.16.2",
     "history": "^4.7.2",

@@ -1,7 +1,6 @@
 import Button from './button';
 import Dropdown from './dropdown';
 import Footer from './footer';
-import Glyphicon from './glyphicon';
 import Header from './header';
 import List from './list';
 import Icon from './icon';
@@ -17,7 +16,6 @@ export {
   Button,
   Dropdown,
   Footer,
-  Glyphicon,
   Header,
   List,
   Icon,

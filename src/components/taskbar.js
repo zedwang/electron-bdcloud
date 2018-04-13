@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { observer, inject } from 'mobx-react';
 import PropTypes from 'prop-types';
 import Button from './button';
-import Glyphicon from './glyphicon';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import Breadcrumb from './breadcrumb';
 import '../styles/taskbar.scss';
 
@@ -36,14 +36,14 @@ export default class Taskbar extends Component {
     return (
       <div className="taskbar">
         <div className="history">
-          <Button className="link-gray" type="link" size="sm" icon="arrow-left2"/>
-          <Button className="link-gray" type="link" size="sm" icon="arrow-right2"/>
-          <Button className="link-gray" type="link" size="sm" icon="spinner11"/>
+          <Button className="link-gray" type="link" size="sm" icon="long-arrow-alt-left"/>
+          <Button className="link-gray" type="link" size="sm" icon="long-arrow-alt-right"/>
+          <Button className="link-gray" type="link" size="sm" icon="sync"/>
         </div>
         <Breadcrumb/>
         <div className="search">
           <input type="text" value={this.state.q} placeholder="搜索我的网盘文件" onChange={this.handleChange}/>
-          <Glyphicon name="search" onClick={this.handleSearch}/>
+          <FontAwesomeIcon icon="search" onClick={this.handleSearch}/>
         </div>
         <div className="view-mode">
           {/* <Button className="link-gray" title="分类查看" type="link" size="sm" icon="menu"/> */}

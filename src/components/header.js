@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { observable } from 'mobx';
 import { observer, inject } from 'mobx-react';
-import Glyphicon from './glyphicon';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import Modal from './modal';
 import Button from './button';
 import Dropdown from './dropdown';
@@ -70,9 +70,9 @@ export default class Header extends Component {
       const state = window.isMax;
       const btns = (() => {
         if (state) {
-          return (<li><a href="javascript:;"><Glyphicon name="icon_maximize" onClick={this.handleRestore} /></a></li>);
+          return (<li onClick={this.handleRestore} ><a href="javascript:;"><FontAwesomeIcon icon="window-restore"/></a></li>);
         } else {
-          return (<li><a href="javascript:;"><Glyphicon name="enlarge" onClick={this.handleMax} /></a></li>);
+          return (<li onClick={this.handleMax} ><a href="javascript:;"><FontAwesomeIcon icon="window-maximize"/></a></li>);
         }
       })();
 
@@ -100,11 +100,11 @@ export default class Header extends Component {
                 </div>
                 <div className="operator">
                   <ul>
-                    <li><a href="javascript:;"><Glyphicon name="bell" /></a></li>
-                    <li><a href="javascript:;"><Glyphicon name="bell" /></a></li>
-                    <li className="separate"><a href="javascript:;"><Glyphicon name="icon_minimize" /></a></li>
+                    <li><a href="javascript:;"><FontAwesomeIcon icon="envelope" /></a></li>
+                    <li><a href="javascript:;"><FontAwesomeIcon icon="cog" /></a></li>
+                    <li onClick={this.handleMini} className="separate"><a href="javascript:;"><FontAwesomeIcon icon="window-minimize" /></a></li>
                     {btns}
-                    <li><a href="javascript:;" onClick={this.handleExit}><Glyphicon name="close" /></a></li>
+                    <li onClick={this.handleExit}><a href="javascript:;"><FontAwesomeIcon icon="window-close" /></a></li>
                   </ul>
                 </div>
               </div>
@@ -112,7 +112,7 @@ export default class Header extends Component {
               <Modal>
                 <div className="modal">
                   <div className="modal-head">
-                    <h3><Glyphicon name="cloud" /> 关闭窗口提示</h3>
+                    <h3><FontAwesomeIcon icon="cloud" /> 关闭窗口提示</h3>
                     <span onClick={this.onCancel}>✕</span>
                   </div>
                   <div className="modal-body">
