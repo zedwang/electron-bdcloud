@@ -82,6 +82,7 @@
     "nodemon": "^1.17.2",
     "npm-run-all": "^4.1.2",
     "pm2": "^2.10.2",
+    "pre-commit": "^1.2.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
     "uglifyjs-webpack-plugin": "^1.1.5",

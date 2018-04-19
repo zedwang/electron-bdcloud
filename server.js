@@ -14,7 +14,6 @@ const webpackConfig = require('./webpack.config');
 const app = new express();
 const compiler = webpack(webpackConfig);
 
-console.log(process.env.NODE_ENV);
 app.use(
   webpackDevMiddleware(compiler, {
     contentBase: webpackConfig.output.path,
