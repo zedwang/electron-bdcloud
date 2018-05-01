@@ -5,7 +5,9 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import cls from 'classnames';
 import '../styles/menu.scss';
 
-@inject('files')
+const categories = ['视频','音乐','图片','文档','应用','其他','种子'];
+
+@inject('files', 'history')
 @observer
 export default class Menu extends React.Component {
 
@@ -14,10 +16,11 @@ export default class Menu extends React.Component {
       const params = new URLSearchParams();
       if (type === 0) {
         params.append('dir', '/');
-        this.props.files.breadcrumb = [];
-        this.props.files.dir = '';
+        this.props.files.setBreadcrumb(['/']);
+        this.props.files.setDir('/');
       } else {
         params.append('category', this.props.files.category);
+        this.props.files.setBreadcrumb(['/',categories[this.props.files.category - 1]]);
       }
       this.props.files.fetchFiles(params.toString());
     }

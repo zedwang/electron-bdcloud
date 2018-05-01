@@ -10,5 +10,12 @@
     font-size: 12px;
     line-height: 30px;
     padding-left: 15px;
-    color: #3e9bff
+    color: $color;
+
+    .total {
+
+        span {
+            margin-right: 10px;
+        }
+    }
 }

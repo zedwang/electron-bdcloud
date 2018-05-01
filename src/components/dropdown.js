@@ -7,7 +7,6 @@ export default class Dropdown extends Component {
   }
 
   componentDidMount() {
-    console.log('node', this.node);
   }
 
     onHover = (ev) => {

@@ -14,17 +14,17 @@ let mainWindow;
 let tray = null;
 
 const externalUrl = {
-  setting: 'https://github.com/zedwang/iCloud/',
-  issue: 'https://github.com/zedwang/iCloud/issues',
-  help: 'https://github.com/zedwang/iCloud/',
-  about: 'https://github.com/zedwang/iCloud/',
+  setting: 'https://github.com/zedwang/electron-bdcloud/',
+  issue: 'https://github.com/zedwang/electron-bdcloud/issues',
+  help: 'https://github.com/zedwang/electron-bdcloud/',
+  about: 'https://github.com/zedwang/electron-bdcloud/',
 };
 
 function createMainWindow() {
   const window = new BrowserWindow({
-    width: 980,
+    width: 986,
     height: 600,
-    minWidth: 980,
+    minWidth: 986,
     minHeight: 600,
     frame: false,
     icon: './resource/logo@2x.png'
@@ -56,8 +56,8 @@ function createMainWindow() {
 
   window.on('reize', () => {
     const [width, height] = window.getSize();
-    if (width < 980) {
-      window.setSize(980, height);
+    if (width < 986) {
+      window.setSize(986, height);
     }
     if (height < 600) {
       window.setSize(width, height);

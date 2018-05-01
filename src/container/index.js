@@ -11,7 +11,7 @@ class App extends Component {
   }
 
   render() {
-    return (<Provider {...stores } test={{}}>
+    return (<Provider {...stores }>
       <BrowserRouter>
         {routes}
       </BrowserRouter>

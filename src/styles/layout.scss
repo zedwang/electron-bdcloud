@@ -2,6 +2,9 @@
 
 * {
     box-sizing: border-box;
+    :focus {
+        outline: none;
+    }
 }
 html {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, 'consolas', 'Microsoft yahei';
@@ -11,7 +14,9 @@ html {
 body {
     background: $background;
     color: $color;
+    overflow: hidden;
 }
+
 
 ul {
     margin: 0;
@@ -42,7 +47,12 @@ a {
     }
 }
 
-
+.ani-enter {
+    animation: bounceIn 500ms;
+}
+.ani-leave {
+    animation: bounceOutRight 500ms;
+}
 
 .container {
     display: flex;
@@ -100,6 +110,8 @@ a {
         flex-grow: 1;
         position: relative;
 
+        
+
         .dragable::before {
             box-sizing: border-box;
             display: flex;
@@ -113,7 +125,7 @@ a {
             width: 100%;
             height: calc(100vh - 189px);
             background: rgba(238, 240, 246, 0.733);;
-            border: 6px dashed $border-color;
+            border: 2px dashed $border-color;
             text-shadow: 0 13.36px 8.896px #c4b59d,0 -2px 1px #fff;
         }
     }
@@ -128,6 +140,57 @@ a {
 .checkbox.inline,
 .radio.inline {
     display: inline-block;
+}
+@keyframes bounceOutRight {
+	20% {
+		opacity: 1;
+		-webkit-transform: translate3d(-20px, 0, 0);
+		transform: translate3d(-20px, 0, 0);
+	}
+	to {
+		opacity: 0;
+		-webkit-transform: translate3d(2000px, 0, 0);
+		transform: translate3d(2000px, 0, 0);
+	}
+}
+
+@keyframes bounceIn {
+	from,
+	20%,
+	40%,
+	60%,
+	80%,
+	to {
+		-webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+		animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+	}
+	0% {
+		opacity: 0;
+		-webkit-transform: scale3d(0.3, 0.3, 0.3);
+		transform: scale3d(0.3, 0.3, 0.3);
+	}
+	20% {
+		-webkit-transform: scale3d(1.1, 1.1, 1.1);
+		transform: scale3d(1.1, 1.1, 1.1);
+	}
+	40% {
+		-webkit-transform: scale3d(0.9, 0.9, 0.9);
+		transform: scale3d(0.9, 0.9, 0.9);
+	}
+	60% {
+		opacity: 1;
+		-webkit-transform: scale3d(1.03, 1.03, 1.03);
+		transform: scale3d(1.03, 1.03, 1.03);
+	}
+	80% {
+		-webkit-transform: scale3d(0.97, 0.97, 0.97);
+		transform: scale3d(0.97, 0.97, 0.97);
+	}
+	to {
+		opacity: 1;
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+	}
 }
 
 .checkbox,

@@ -1,96 +1,123 @@
 @import 'var';
-.m-icons {
-    padding: 5px;
-    height: calc(100vh - 189px);
-    overflow: auto;
-
-    .m-icon {
-        padding: 3px;
-        float: left;
-
-        a {
-            text-align: center;
-            display: block;
-            width: 130px;
-            height: 120px;
-            text-decoration: none;
-            font-size: 12px;
-            color: #969292;
-            // border: 1px solid #ddd;
-            cursor: default;
-            overflow: hidden;
-
-            &:hover {
-                background: rgba(234, 249, 252, 0.466);
-                box-shadow: 0 0 1px 1px $color-hover;
-                border-radius: 2px;
-            }
-
-            .ico {
-                width: 80px;
-                height: 80px;
-                margin: 18px auto 0;
-                background-size: cover;
-            }
-
-            .ico-zip {
-                background-image: url('./images/fileType/RarType.png')
-            }
-
-            .ico-word {
-                background-image: url('./images/fileType/DocType.png')
-            }
-
-            .ico-web {
-                background-image: url('./images/fileType/OtherType.png')
-            }
-
-            .ico-video {
-                background-image: url('./images/fileType/VideoType.png')
-            }
-
-            .ico-txt {
-                background-image: url('./images/fileType/TxtType.png')
-            }
-
-            .ico-image {
-                background-image: url('./images/fileType/ImgType.png')
-            }
-
-            .ico-pdf {
-                background-image: url('./images/fileType/PdfType.png')
-            }
-
-            .ico-other {
-                background-image: url('./images/fileType/OtherType.png')
-            }
-
-            .ico-links {
-            }
-
-            .ico-folder {
-                background-image: url('./images/fileType/FolderType.png')
-            }
-
-            .ico-excel {
-                background-image: url('./images/fileType/XlsType.png')
-            }
-
-            .ico-card {
-                background-image: url('./images/fileType/Apps.png')
-            }
-
-            .ico-bt {
-                background-image: url('./images/fileType/TorrentType.png')
-            }
-
-            .name {
-                padding: 5px;
-                width: 100%;
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-            }
-        }
+.m-icons.empty {
+    &::after {
+        content: ' ';
+        display: block;
+        width: 181px;
+        height: 127px;
+        background-image: url('./images/PhoneEmpty.png');
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)
     }
 }
+.m-icons {
+    position: relative;
+	padding: 5px;
+	height: calc(100vh - 189px);
+	overflow: auto; // &::-webkit-scrollbar {
+	//     width: 5px;
+	//     height: 100%;
+	//     opacity: 0.6;
+	// }
+	&::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+	}
+	&::-webkit-scrollbar-track {
+		opacity: 0.7;
+	}
+	.m-icon {
+		padding: 4px;
+		float: left;
+		overflow: hidden;
+		input[type="checkbox"] {
+			display: none;
+		}
+		input:checked+a {
+			background: rgba(234, 249, 252, 0.466);
+			box-shadow: 0 0 1px 1px $color-hover;
+			border-radius: 2px;
+		}
+		a {
+			text-align: center;
+			display: block;
+			width: 125px;
+			height: 120px;
+			text-decoration: none;
+			font-size: 12px;
+			color: $color; // border: 1px solid #ddd;
+			cursor: default;
+			overflow: hidden;
+			&.active {
+				background: rgba(213, 234, 238, 0.466);
+				box-shadow: 0 0 1px 1px $color-hover;
+				border-radius: 2px;
+			}
+			&:not(.active):hover {
+				background: rgba(234, 249, 252, 0.466);
+				box-shadow: 0 0 1px 1px $color-hover;
+				border-radius: 2px;
+			}
+			.ico {
+				width: 80px;
+				height: 80px;
+				margin: 18px auto 0;
+				background-size: cover;
+			}
+			.ico-zip {
+				background-image: url('./images/fileType/RarType.png')
+			}
+			.ico-word {
+				background-image: url('./images/fileType/DocType.png')
+			}
+			.ico-web {
+				background-image: url('./images/fileType/OtherType.png')
+			}
+			.ico-video {
+				background-image: url('./images/fileType/VideoType.png')
+			}
+			.ico-txt {
+				background-image: url('./images/fileType/TxtType.png')
+			}
+			.ico-image {
+				background-image: url('./images/fileType/ImgType.png')
+			}
+			.ico-pdf {
+				background-image: url('./images/fileType/PdfType.png')
+			}
+			.ico-other {
+				background-image: url('./images/fileType/OtherType.png')
+			}
+			.ico-links {
+				background-image: url('./images/fileType/OtherType.png')
+			}
+			.ico-folder {
+				background-image: url('./images/fileType/FolderType.png')
+			}
+			.ico-excel {
+				background-image: url('./images/fileType/XlsType.png')
+			}
+			.ico-card {
+				background-image: url('./images/fileType/Apps.png')
+			}
+			.ico-bt {
+				background-image: url('./images/fileType/TorrentType.png')
+			}
+			.name {
+				padding: 5px;
+				width: 100%;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				input.edit {
+					border: 1px solid #e6e3e3;
+					padding: 2px;
+					width: 100%;
+					color: $color;
+				}
+			}
+		}
+	}
+}
+

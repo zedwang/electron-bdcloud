@@ -1,0 +1,18 @@
+@import 'var';
+
+.share-empty {
+    height: calc(100vh - 75px);
+    position: relative;
+    
+    &::after {
+        content: ' ';
+        display: block;
+        position: absolute;
+        width: 364px;
+        height: 158px;
+        background-image: url('./images/EmptySession.png');
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)
+    }
+}

@@ -7,9 +7,10 @@
     "start": "npm-run-all --parallel serve dev",
     "serve": "cross-env NODE_ENV=development node ./server.js",
     "dev": "cross-env NODE_ENV=development electron . --debug",
+    "debug": "node ./server.js --nolazy --inspect-brk=9229",
     "compile": "cross-env NODE_ENV=production && webpack",
     "compile:main": "cross-env NODE_ENV=production && webpack --config ./build/webpack.electron.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\"",
     "lint": "eslint --fix ./",
     "package:win": "cd package && electron-packager ./ --overwrite --platform=win32",
     "release": "cd package && electron-builder"
@@ -39,7 +40,8 @@
   },
   "license": "MIT",
   "pre-commit": [
-    "lint"
+    "lint",
+    "test"
   ],
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.39",
@@ -107,6 +109,8 @@
     "normalize.css": "^8.0.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-contextmenu": "^2.9.2",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2"
   }

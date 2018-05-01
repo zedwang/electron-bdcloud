@@ -1,12 +1,12 @@
-import { observable } from 'mobx';
-
+import { observable, computed } from 'mobx';
 class Files {
     
     @observable breadcrumb = ['/']
     @observable data = [];
+    @observable total = 0;
     @observable category = 0;
-    @observable dir = '';
-
+    @observable dir = '/';
+    @observable selected = new Map();
 
     async createFolder(name) {
       return await fetch('/folder',{
@@ -24,20 +24,18 @@ class Files {
      */
     // fetch 默认的模式是不带cookie等数据到服务器上去的
     async fetchFiles(params) {
-      const url = `/search${params && params.length ? '?' + params : ''}`;
+      const url = `/files${params && params.length ? '?' + params : ''}`;
       const files = await fetch(url, {
-        cache: 'reload'
+        cache: 'default'
       });
-      const { data } = await files.json(); 
+      const { data, total } = await files.json(); 
       this.data = data;
+      this.total = total;
+      this.selected.clear();
     }   
 
-    setCategory(type) {
-      this.category = type;
-    }
-
     async upload(file, params) {
-      const res = await fetch('/upload', {
+      await fetch(`/files/upload${ params ? '?' + params : ''}`, {
         qs: params,
         method: 'POST',
         headers: {
@@ -46,7 +44,64 @@ class Files {
         },
         body: JSON.stringify(file)
       });
-      return res;
+      this.selected.clear();
+    }
+
+    rename(id, newName) {
+      return fetch('/files/rename/' + id + '?name=' + newName);
+    }
+
+    async moving(src, target) {
+      await fetch('/files/moving', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({src, target})
+      });
+    }
+
+    multiRemove(ids) {
+      return fetch('/files/delete', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(ids)
+      });
+    }
+
+    remove(id) {
+      return fetch('/files/' + id, {
+        method: 'DELETE',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      });
+    }
+
+    setCategory(type) {
+      this.category = type;
+    }
+
+    setDir(dir) {
+      this.dir = dir;
+    }
+
+    setBreadcrumb(data) {
+      this.breadcrumb = data;
+    }
+
+    addBreadcrumb(step) {
+      this.breadcrumb.push(step);
+    }
+
+    @computed
+    get selectedSize() {
+      return this.selected.size;
     }
 
 }

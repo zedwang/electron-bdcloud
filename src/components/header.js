@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import { observable } from 'mobx';
 import { observer, inject } from 'mobx-react';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
@@ -66,7 +67,6 @@ export default class Header extends Component {
 
     render() {
       const { window, user } = this.props;
-      console.log(user.userInfo);
       const state = window.isMax;
       const btns = (() => {
         if (state) {
@@ -83,10 +83,10 @@ export default class Header extends Component {
               </div>
               <div className="nav">
                 <ul>
-                  <li><a href="#" className="active">我的网盘</a></li>
-                  <li><a href="#">分享</a></li>
-                  <li><a href="#">隐藏空间</a></li>
-                  <li><a href="#">功能宝箱</a></li>
+                  <li><NavLink to="/" activeClassName="active">我的网盘</NavLink></li>
+                  <li><NavLink to="/share" activeClassName="active">分享</NavLink></li>
+                  <li><NavLink to="#">隐藏空间</NavLink></li>
+                  <li><NavLink to="#">功能宝箱</NavLink></li>
                 </ul>
               </div>
               <div className="profile">
@@ -96,7 +96,7 @@ export default class Header extends Component {
                     {user.userInfo.niceName}
                   </Dropdown>
                   <span className="sign"></span>
-                  <a href="#" className="bg-danger">会员中心</a>
+                  <a href="https://github.com/zedwang/electron-bdcloud" className="bg-danger">会员中心</a>
                 </div>
                 <div className="operator">
                   <ul>
@@ -110,9 +110,9 @@ export default class Header extends Component {
               </div>
             </div>{this.showCloseDialog ? (
               <Modal>
-                <div className="modal">
+                <div className="modal ani-enter">
                   <div className="modal-head">
-                    <h3><FontAwesomeIcon icon="cloud" /> 关闭窗口提示</h3>
+                    <h3>关闭窗口提示</h3>
                     <span onClick={this.onCancel}>✕</span>
                   </div>
                   <div className="modal-body">
