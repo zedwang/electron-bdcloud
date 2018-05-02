@@ -80,7 +80,7 @@ export default class Home extends Component {
           <div className="content">
             <Toolbar/>
             <Taskbar/>
-            <div className={cls({'dragable': this.props.window.showLandingPoint})}
+            <div /*className={cls({'dragable': this.props.window.showLandingPoint})}*/
               onDrop={ this.handleDrop }>
               <div className={cls('m-icons', {'empty': this.props.files.total === 0})} >
                 {items}

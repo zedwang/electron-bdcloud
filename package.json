@@ -5,16 +5,16 @@
   "main": "./main.js",
   "scripts": {
     "start": "npm-run-all --parallel serve dev",
-    "serve": "cross-env NODE_ENV=development node ./server.js",
-    "dev": "cross-env NODE_ENV=development electron . --debug",
-    "debug": "node ./server.js --nolazy --inspect-brk=9229",
-    "compile": "set NODE_ENV=production && webpack",
-    "compile:main": "set NODE_ENV=production && webpack --config ./build/webpack.electron.js",
+    "serve": "node ./server.js",
+    "dev": "electron . --debug",
+    "compile": "set NODE_ENV=production && rm -rf package/dist && webpack",
+    "compile:main": "set NODE_ENV=production && rm -rf package/main.js && webpack --config ./build/webpack.electron.js",
     "test": "echo \"Error: no test specified\"",
     "lint": "eslint --fix ./src",
-    "package:win": "cd package && electron-packager ./ --overwrite --platform=win32",
-    "release": "cd package && electron-builder",
-    "build": "npm-run-all compile compile:main package:win"
+    "release": "cd package && rm -rf release && electron-builder",
+    "package:win": "cd package && rm -rf electron-* && electron-packager ./ --overwrite --platform=win32",
+    "package": "npm-run-all compile compile:main package:win",
+    "build": "npm-run-all compile compile:main release"
   },
   "author": {
     "name": "woox.wzd",

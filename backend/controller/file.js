@@ -36,11 +36,11 @@ module.exports = {
     if (isNotEmpty(req.query.q)) {
       param.name = {$regex: new RegExp(req.query.q)};
     }
-        
-    let docs = await fileModel.find(param);
-    docs = await docs.sort({name: 1});
     const count = await fileModel.count(param);
-    res.charset = 'utf-8';
+    const docs = await fileModel.find(param);
+    // sort causes fetch padding in prod env,why?
+    // docs = await docs.sort({lastModified: -1, type: -1});
+    // res.charset = 'utf-8';
     res.json({
       code: 0,
       total: count,

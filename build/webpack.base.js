@@ -16,7 +16,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-react', '@babel/preset-env'],
+            presets: ['@babel/preset-react', '@babel/preset-es2015'],
             plugins: [
               require('@babel/plugin-proposal-decorators'),
               [require('@babel/plugin-proposal-class-properties'),{loose: true}],
@@ -71,7 +71,7 @@ module.exports = {
       root: paths.dist()
     }),
     new HtmlWebpackPlugin({
-      title:'shanzhai-cloud',
+      title:'electron-cloud',
       template : paths.project(paths.src(),'index.html'),
     })
   ],

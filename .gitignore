@@ -3,7 +3,7 @@ node_modules
 package/dist
 package/release
 package/*.js
-package/icloud-*
+package/electron-cloud-*
 db
 .vscode
 yarn-error.log

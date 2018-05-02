@@ -4,7 +4,7 @@ const { app, BrowserWindow, ipcMain, Tray, Menu, shell } = require('electron');
 const path = require('path');
 const { format } = require('url');
 const server = require('./backend');
-const isProd = process.env.NODE_ENV.trim() === 'production';
+const isProd = process.env.NODE_ENV && process.env.NODE_ENV.trim() === 'production';
 
 // global reference to mainWindow (necessary to prevent window from being garbage collected)
 let mainWindow;
@@ -24,21 +24,22 @@ server.listen(10527, 'localhost', () => {
 function createMainWindow() {
   
   const window = new BrowserWindow({
-    // webPreferences: {
-    //   webSecurity: false
-    // },
+    webPreferences: {
+      webSecurity: false
+    },
     width: 986,
     height: 600,
     minWidth: 986,
     minHeight: 600,
     frame: false,
-    icon: './resource/logo@2x.png'
+    icon: './package/resource/logo@2x.png'
   });
 
   if (!isProd) {
     window.webContents.openDevTools();
     window.loadURL('http://localhost:8597');
   } else {
+    window.webContents.openDevTools();
     window.loadURL(format({
       pathname: path.join(__dirname, 'dist', 'index.html'),
       protocol: 'file',
@@ -88,7 +89,6 @@ app.on('window-all-closed', () => {
   // on macOS it is common for applications to stay open until the user explicitly quits
   if (process.platform !== 'darwin') {
     app.quit();
-    
   }
 });
 
@@ -108,7 +108,7 @@ ipcMain.on('hidden-window', () => {
   if (!tray) {
     tray  = new Tray('./resource/logo.png');
   }
-  tray.setToolTip('山寨云盘');
+  tray.setToolTip('electron-bd');
   mainWindow.hide();
 
   tray.on('right-click', () => {

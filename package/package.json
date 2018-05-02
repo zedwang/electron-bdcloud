@@ -1,7 +1,7 @@
 {
-  "name": "icloud",
+  "name": "electron-cloud",
   "version": "1.0.0",
-  "description": "仿百度云盘客户端",
+  "description": "A project of electron practices copy the bd",
   "main": "./main.js",
   "author": {
     "name": "woox.wzd",
@@ -9,44 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zedwang/iCloud.git"
+    "url": "https://github.com/zedwang/electron-bdcloud.git"
   },
   "license": "MIT",
   "build": {
-    "productName": "icloud",
+    "productName": "electron-cloud",
     "appId": "zed.woox.icloud",
     "compression": "maximum",
     "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
-    "dmg": {
-      "contents": [
-        {
-          "x": 130,
-          "y": 220
-        },
-        {
-          "x": 410,
-          "y": 220,
-          "type": "link",
-          "path": "/Applications"
-        }
-      ],
-      "title": "icloud ${version}"
-    },
-    "mac": {
-      "icon": "./icons/iCloud.icns"
-    },
-    "linux": {
-      "icon": "./icons",
-      "category": "cloud",
-      "target": [
-        "deb",
-        "rpm",
-        "AppImage"
-      ]
-    },
     "win": {
-      "target": "nsis"
-    },
+      "target": "nsis",
+      "icon": "./resource/logo.ico"
+    },  
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
@@ -54,7 +28,7 @@
       "deleteAppDataOnUninstall": true
     },
     "directories": {
-      "buildResources": "./icons",
+      "buildResources": "./resource",
       "output": "release"
     }
   }

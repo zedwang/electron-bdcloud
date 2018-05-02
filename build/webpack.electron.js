@@ -10,6 +10,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const paths = config.get('utils.paths');
 module.exports = Object.assign(base,{
   entry: [
+    '@babel/polyfill',
     `${paths.project()}/main.js`,
   ],
   output: {
