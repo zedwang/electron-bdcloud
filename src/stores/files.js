@@ -1,6 +1,7 @@
 import { observable, computed } from 'mobx';
+import { hostname } from '../constant';
+
 class Files {
-    
     @observable breadcrumb = ['/']
     @observable data = [];
     @observable total = 0;
@@ -9,7 +10,7 @@ class Files {
     @observable selected = new Map();
 
     async createFolder(name) {
-      return await fetch('/folder',{
+      return await fetch(`${hostname}/folder`,{
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -24,7 +25,7 @@ class Files {
      */
     // fetch 默认的模式是不带cookie等数据到服务器上去的
     async fetchFiles(params) {
-      const url = `/files${params && params.length ? '?' + params : ''}`;
+      const url = `${hostname}/files${params && params.length ? '?' + params : ''}`;
       const files = await fetch(url, {
         cache: 'default'
       });
@@ -35,7 +36,7 @@ class Files {
     }   
 
     async upload(file, params) {
-      await fetch(`/files/upload${ params ? '?' + params : ''}`, {
+      await fetch(`${hostname}/files/upload${ params ? '?' + params : ''}`, {
         qs: params,
         method: 'POST',
         headers: {
@@ -48,11 +49,11 @@ class Files {
     }
 
     rename(id, newName) {
-      return fetch('/files/rename/' + id + '?name=' + newName);
+      return fetch(`${hostname}/files/rename/${id}?name=${newName}`);
     }
 
     async moving(src, target) {
-      await fetch('/files/moving', {
+      await fetch(`${hostname}/files/moving`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -63,7 +64,7 @@ class Files {
     }
 
     multiRemove(ids) {
-      return fetch('/files/delete', {
+      return fetch(`${hostname}/files/delete`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -74,7 +75,7 @@ class Files {
     }
 
     remove(id) {
-      return fetch('/files/' + id, {
+      return fetch(`${hostname}/files/${id}`, {
         method: 'DELETE',
         headers: {
           'Accept': 'application/json',

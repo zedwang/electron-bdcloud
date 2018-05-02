@@ -4,6 +4,7 @@ package/dist
 package/release
 package/resource
 package/*.js
+package/icloud-*
 db/*.db
 .vscode
 yarn-error.log

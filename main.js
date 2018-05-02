@@ -4,9 +4,6 @@ const { app, BrowserWindow, ipcMain, Tray, Menu, shell } = require('electron');
 const path = require('path');
 const { format } = require('url');
 const server = require('./backend');
-const config = require('./config');
-// const { enableLiveReload } = require('electron-compile');
-
 const isProd = process.env.NODE_ENV.trim() === 'production';
 
 // global reference to mainWindow (necessary to prevent window from being garbage collected)
@@ -20,8 +17,16 @@ const externalUrl = {
   about: 'https://github.com/zedwang/electron-bdcloud/',
 };
 
+server.listen(10527, 'localhost', () => {
+  console.log('API Server listening on port http://localhost:10527');
+});
+
 function createMainWindow() {
+  
   const window = new BrowserWindow({
+    // webPreferences: {
+    //   webSecurity: false
+    // },
     width: 986,
     height: 600,
     minWidth: 986,
@@ -75,12 +80,8 @@ function createMainWindow() {
 
 
 function menuClick(menuItem) {
-  console.log(menuItem.id);
   shell.openExternal(externalUrl[menuItem.id]);
 }
-
-
-server.listen(config.get('api.port'), 'localhost', ()=> console.log('API Server listening on port http://localhost:9527'));
 
 // quit application when all windows are closed
 app.on('window-all-closed', () => {
@@ -101,12 +102,7 @@ app.on('activate', () => {
 // create main BrowserWindow when electron is ready
 app.on('ready', () => {
   mainWindow = createMainWindow();
-  if (!isProd) {
-    // enableLiveReload({ strategy: 'react-hmr'});`
-  }
 });
-
-
 
 ipcMain.on('hidden-window', () => {
   if (!tray) {

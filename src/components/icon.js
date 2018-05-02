@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 // import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { ContextMenuTrigger, ContextMenu, MenuItem } from 'react-contextmenu';
 import cls from 'classnames';
-import { icon } from '../utils';
+import { iconType } from '../utils';
 import '../styles/icon.scss';
 
 const ESCAPE_KEY = 27;
@@ -109,7 +109,7 @@ export default class MediumIcon extends Component {
   }
 
   render() {
-    const cn = `ico ico-${icon(this.props.item.type)}`;
+    const cn = `ico ico-${iconType(this.props.item.type)}`;
     return (
       <Fragment>
         <ContextMenuTrigger id={'ITEM'+this.props.item.id}>

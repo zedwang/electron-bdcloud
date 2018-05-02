@@ -25,7 +25,7 @@ app.use(
 );
 app.use(webpackHotMiddleware(compiler));
 
-app.use('/', proxy({target: 'http://localhost:9527', changeOrigin: true}));
+app.use('/', proxy({target: 'http://localhost:10527', changeOrigin: true}));
 
 app.listen(config.get('webpack.port'), config.get('webpack.host'), err => {
   if (err) {

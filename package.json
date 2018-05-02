@@ -8,12 +8,13 @@
     "serve": "cross-env NODE_ENV=development node ./server.js",
     "dev": "cross-env NODE_ENV=development electron . --debug",
     "debug": "node ./server.js --nolazy --inspect-brk=9229",
-    "compile": "cross-env NODE_ENV=production && webpack",
-    "compile:main": "cross-env NODE_ENV=production && webpack --config ./build/webpack.electron.js",
+    "compile": "set NODE_ENV=production && webpack",
+    "compile:main": "set NODE_ENV=production && webpack --config ./build/webpack.electron.js",
     "test": "echo \"Error: no test specified\"",
-    "lint": "eslint --fix ./",
+    "lint": "eslint --fix ./src",
     "package:win": "cd package && electron-packager ./ --overwrite --platform=win32",
-    "release": "cd package && electron-builder"
+    "release": "cd package && electron-builder",
+    "build": "npm-run-all compile compile:main package:win"
   },
   "author": {
     "name": "woox.wzd",

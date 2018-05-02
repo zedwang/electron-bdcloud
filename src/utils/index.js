@@ -10,13 +10,23 @@ export function formatSize(size) {
   return volume + unit;
 }
 
-export function icon(type) {
-  const res = type.match(/image|zip|word|xls|mp3|folder/);
-  if (res) {
-    return type.match(res)[0];
+export function iconType(type) {
+  const types = {
+    video: /video|mp4|mkv/,
+    image: /image|jpg|jpeg|gif|png/,
+    zip: /zip/,
+    word: /word/,
+    xls: /xls/,
+    app: /exe|ms|dmg/,
+    folder: /folder/
+  };
+  for (const [key, value] of Object.entries(types)) {
+    const res = type.match(value);
+    if (res) {
+      return key; 
+    }
   }
   return 'other';
-
 }
 
 export function queryParams(params) {

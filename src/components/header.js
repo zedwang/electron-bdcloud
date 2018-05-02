@@ -5,7 +5,7 @@ import { observer, inject } from 'mobx-react';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import Modal from './modal';
 import Button from './button';
-import Dropdown from './dropdown';
+// import Dropdown from './dropdown';
 import PropTypes from 'prop-types';
 
 import '../styles/header.scss';
@@ -92,9 +92,9 @@ export default class Header extends Component {
               <div className="profile">
                 <div className="avatar"></div>
                 <div className="username">
-                  <Dropdown trigger={user.userInfo.niceName} hoverable flowing>
-                    {user.userInfo.niceName}
-                  </Dropdown>
+                  {/* <Dropdown trigger={user.userInfo.niceName} hoverable flowing> */}
+                  {user.userInfo.niceName}
+                  {/* </Dropdown> */}
                   <span className="sign"></span>
                   <a href="https://github.com/zedwang/electron-bdcloud" className="bg-danger">会员中心</a>
                 </div>
