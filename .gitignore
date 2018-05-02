@@ -2,9 +2,8 @@ node_modules
 .git
 package/dist
 package/release
-package/resource
 package/*.js
 package/icloud-*
-db/*.db
+db
 .vscode
 yarn-error.log

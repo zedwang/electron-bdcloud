@@ -8,7 +8,7 @@ const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const proxy = require('http-proxy-middleware');
-const config = require('./config');
+const config = require('./build/config');
 const webpackConfig = require('./webpack.config');
 
 const app = new express();

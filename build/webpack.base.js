@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2017/12/29 0029.
  */
-const config = require('../config');
+const config = require('./config');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');

@@ -2,7 +2,7 @@
  * Created by Administrator on 2017/12/29 0029.
  */
 const Webpack = require('webpack');
-const config  = require('../config');
+const config  = require('./config');
 const baseConf = require('./webpack.base');
 
 const paths = config.get('utils.paths');

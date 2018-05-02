@@ -3,7 +3,7 @@
  * Created by Administrator on 2017/12/29 0029.
  */
 const Webpack = require('webpack');
-const config  = require('../config');
+const config  = require('./config');
 const base = require('./webpack.base');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
